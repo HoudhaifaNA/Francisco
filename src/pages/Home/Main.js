@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 
 import Title from "../../components/Title";
+import SearchBar from "./SearhBar";
+import Categories from "./Categories";
 
 const Wrapper = styled.main`
   width: 62vw;
@@ -17,27 +19,14 @@ const PageHeader = styled.header`
   justify-content: space-between;
 `;
 
-const SearchContainer = styled.div`
-  width: 45rem;
-  height: 5rem;
-  background-color: ${(props) => props.theme.colors.white};
-  border-radius: 0.2rem;
-`;
-
-const SearchSvg = styled.svg`
-  width: 2.5rem;
-  height: 2.5rem;
-`;
-
 const Main = () => {
   return (
     <Wrapper>
       <PageHeader>
         <Title>Menu</Title>
-        <SearchContainer>
-          <SearchSvg></SearchSvg>
-        </SearchContainer>
+        <SearchBar />
       </PageHeader>
+      <Categories />
     </Wrapper>
   );
 };
