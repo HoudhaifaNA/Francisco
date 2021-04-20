@@ -6,7 +6,7 @@ import CategoryItem from "./CategoryItem";
 const CategoryList = styled.div`
   height: 15rem;
   min-width: 100%;
-  margin: 4rem 0;
+  margin: 3rem 0 1rem 0;
   display: flex;
   align-items: center;
   flex-wrap: nowrap;

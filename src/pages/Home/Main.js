@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Title from "../../components/Title";
 import SearchBar from "./SearhBar";
 import Categories from "./Categories";
+import OrderController from "./OrderController";
 
 const Wrapper = styled.main`
   width: 62vw;
@@ -27,6 +28,7 @@ const Main = () => {
         <SearchBar />
       </PageHeader>
       <Categories />
+      <OrderController />
     </Wrapper>
   );
 };

@@ -29,6 +29,7 @@ const IconContainer = styled.div`
   svg {
     width: 2rem;
     height: 2rem;
+    fill: ${(props) => props.theme.colors.greyDark};
   }
 `;
 
@@ -36,6 +37,7 @@ const CategoryName = styled.h4`
   font-size: 1.3rem;
   font-weight: 700;
   text-transform: capitalize;
+  color: ${(props) => props.theme.colors.greyDark};
 `;
 
 const CategoryItem = (props) => {

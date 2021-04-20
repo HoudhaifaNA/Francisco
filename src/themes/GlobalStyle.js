@@ -19,6 +19,10 @@ const GlobalStyle = createGlobalStyle`
         letter-spacing: .1rem;
     }
 
+    input, button{
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+    }
 `;
 
 export default GlobalStyle;
