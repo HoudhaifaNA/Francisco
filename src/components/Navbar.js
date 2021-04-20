@@ -7,7 +7,7 @@ import Icon from "./Icon";
 const Wrapper = styled.nav`
   position: relative;
   height: 100vh;
-  width: 16vw;
+  width: 14vw;
   border-right: 0.1rem solid rgba(0, 0, 0, 0.15);
 `;
 

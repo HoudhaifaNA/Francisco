@@ -8,7 +8,6 @@ import MoveItemButton from "../../components/PrimaryButton.style";
 const Wrapper = styled.div`
   width: 100%;
   height: 5rem;
-  background-color: bisque;
   display: flex;
   align-items: center;
   justify-content: flex-end;

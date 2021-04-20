@@ -17,6 +17,7 @@ const GlobalStyle = createGlobalStyle`
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         font-weight: 400;
         letter-spacing: .1rem;
+        overflow-y: hidden;
     }
 
     input, button{
