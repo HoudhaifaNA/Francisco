@@ -1,4 +1,8 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
+
+import { updateSize } from "../../actions";
+
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -29,10 +33,11 @@ const SizeChecker = styled.div`
   justify-content: center;
 `;
 
-const SizeForm = () => {
-  const [selection, selectSize] = useState([true, false, false]);
-  const sizeClicked = (selection) => {
+const SizeForm = (props) => {
+  const [selection, selectSize] = useState([false, false, false]);
+  const sizeClicked = (selection, size) => {
     selectSize(selection);
+    props.updateSize(size);
   };
 
   return (
@@ -40,26 +45,30 @@ const SizeForm = () => {
       <SizeContainer>
         <SizeChecker
           selected={selection[0]}
-          onClick={() => sizeClicked([true, false, false])}
+          onClick={() => sizeClicked([true, false, false], "L")}
         />
-        L 400 DA
+        L {props.currentItem.prices[0]} DA
       </SizeContainer>
       <SizeContainer>
         <SizeChecker
           selected={selection[1]}
-          onClick={() => sizeClicked([false, true, false])}
+          onClick={() => sizeClicked([false, true, false], "XL")}
         />
-        XL 800 DA
+        XL {props.currentItem.prices[1]} DA
       </SizeContainer>
       <SizeContainer>
         <SizeChecker
           selected={selection[2]}
-          onClick={() => sizeClicked([false, false, true])}
+          onClick={() => sizeClicked([false, false, true], "XXL")}
         />
-        XXL 1200 DA
+        XXL {props.currentItem.prices[2]} DA
       </SizeContainer>
     </Wrapper>
   );
 };
 
-export default SizeForm;
+const mapStateToProps = (state) => {
+  return { currentItem: state.currentItem };
+};
+
+export default connect(mapStateToProps, { updateSize })(SizeForm);

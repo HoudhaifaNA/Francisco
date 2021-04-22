@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
 
-import { selectItem, unSelectItem } from "../../actions";
+import { selectItem, unSelectItem, updateCurrentItem } from "../../actions";
 
 const Item = styled.div`
   grid-column: span 1;
@@ -53,6 +53,7 @@ const FoodItem = (props) => {
     isSelected === false ? selectItem(true) : selectItem(false);
     if (isSelected === false) props.selectItem({ ...props });
     if (isSelected === true) props.unSelectItem(props.id);
+    props.updateCurrentItem(props.selectedItems);
   };
 
   return (
@@ -67,7 +68,11 @@ const FoodItem = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  return { currentItem: state.currentItem };
+  return { selectedItems: state.selectedItems };
 };
 
-export default connect(mapStateToProps, { selectItem, unSelectItem })(FoodItem);
+export default connect(mapStateToProps, {
+  selectItem,
+  unSelectItem,
+  updateCurrentItem,
+})(FoodItem);

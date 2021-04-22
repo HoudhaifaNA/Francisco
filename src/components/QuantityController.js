@@ -1,4 +1,8 @@
+import React from "react";
+import { connect } from "react-redux";
 import styled from "styled-components";
+
+import { increment, decrement } from "../actions";
 
 const Wrapper = styled.div`
   width: 13rem;
@@ -35,14 +39,23 @@ const IncrementButton = styled(Button)`
   border: 0.2rem solid ${(props) => props.theme.colors.primary};
 `;
 
-const QuantityController = () => {
+const QuantityController = (props) => {
+  const increment = () => props.increment();
+  const decrement = () => (props.quantity !== 1 ? props.decrement() : 1);
   return (
     <Wrapper>
-      <DecrementButton>-</DecrementButton>
-      <Quantity>1</Quantity>
-      <IncrementButton>+</IncrementButton>
+      <DecrementButton onClick={decrement} quantity={props.quantity}>
+        -
+      </DecrementButton>
+      <Quantity>{props.quantity}</Quantity>
+      <IncrementButton onClick={increment}>+</IncrementButton>
     </Wrapper>
   );
 };
+const mapStateToProps = (state) => {
+  return { quantity: state.currentItem.quantity };
+};
 
-export default QuantityController;
+export default connect(mapStateToProps, { increment, decrement })(
+  QuantityController
+);

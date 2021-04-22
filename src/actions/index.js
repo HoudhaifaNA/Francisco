@@ -11,3 +11,23 @@ export const selectItem = (item) => {
 export const unSelectItem = (id) => {
   return { type: actionNames.UNSELECT_ITEM, payload: id };
 };
+
+export const updateCurrentItem = () => (dispatch, getState) => {
+  const { selectedItems } = getState();
+  dispatch({
+    type: actionNames.UPDATE_CURRENT_ITEM,
+    payload: selectedItems,
+  });
+};
+
+export const updateSize = (size) => {
+  return { type: actionNames.UPDATE_SIZE, payload: size };
+};
+
+export const increment = () => {
+  return { type: actionNames.INCREMENET };
+};
+
+export const decrement = () => {
+  return { type: actionNames.DECREMENT };
+};
