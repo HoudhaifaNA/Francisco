@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
+import SizeForm from "./SizeForm";
 import SuplumentsDrowpdown from "./SuplumentsDrowpdown";
 import QuantityController from "../../components/QuantityController";
 import MoveItemButton from "../../components/PrimaryButton.style";
@@ -16,6 +17,7 @@ const Wrapper = styled.div`
 const OrderController = () => {
   return (
     <Wrapper>
+      <SizeForm />
       <SuplumentsDrowpdown />
       <QuantityController />
       <MoveItemButton width="10rem" height="3.5rem" marginLeft="1rem">

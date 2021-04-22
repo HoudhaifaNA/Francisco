@@ -24,6 +24,11 @@ const GlobalStyle = createGlobalStyle`
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 
     }
+
+    .suplumentActive{
+        background-color: ${(props) => props.theme.colors.purple};
+        color: #fff;
+    }
 `;
 
 export default GlobalStyle;

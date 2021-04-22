@@ -18,8 +18,18 @@ const Items = () => {
   return (
     <Wrapper>
       {/* <Loader /> */}
-      <FoodItem image="pizza" name="pizza margeritta" price="400" />
-      <FoodItem image="burger" name="Burger special" price="350" />
+      <FoodItem
+        image="pizza"
+        name="pizza margeritta"
+        prices={[400, 800, 1200]}
+        id="1"
+      />
+      <FoodItem
+        image="burger"
+        name="Burger special"
+        prices={[450, 900, 1300]}
+        id="3"
+      />
     </Wrapper>
   );
 };

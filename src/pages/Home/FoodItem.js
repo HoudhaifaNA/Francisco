@@ -1,12 +1,15 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
 import styled from "styled-components";
+
+import { selectItem, unSelectItem } from "../../actions";
 
 const Item = styled.div`
   grid-column: span 1;
   height: 22rem;
   background-color: ${(props) =>
-    props.selected === "true" ? props.theme.colors.primary : "#fff"};
-  color: ${(props) => (props.selected === "true" ? "#fff " : "#000")};
+    props.selected ? props.theme.colors.primary : "#fff"};
+  color: ${(props) => (props.selected ? "#fff " : "#000")};
   padding: 2rem;
   border-radius: 0.5rem;
   display: flex;
@@ -44,20 +47,27 @@ const ItemPrice = styled.h4`
   text-transform: capitalize;
 `;
 
-const FoodItem = ({ image, name, price }) => {
-  const [isSelected, selectItem] = useState("no");
+const FoodItem = (props) => {
+  const [isSelected, selectItem] = useState(false);
   const onItemClick = () => {
-    isSelected === "no" ? selectItem("true") : selectItem("no");
+    isSelected === false ? selectItem(true) : selectItem(false);
+    if (isSelected === false) props.selectItem({ ...props });
+    if (isSelected === true) props.unSelectItem(props.id);
   };
+
   return (
     <Item selected={isSelected} onClick={onItemClick}>
       <ImageContainer>
-        <img src={`/assets/${image}.png`} alt="food" />
+        <img src={`/assets/${props.image}.png`} alt="food" />
       </ImageContainer>
-      <ItemName>{name}</ItemName>
-      <ItemPrice>{price}.00 DA</ItemPrice>
+      <ItemName>{props.name}</ItemName>
+      <ItemPrice>{props.prices[0]}.00 DA</ItemPrice>
     </Item>
   );
 };
 
-export default FoodItem;
+const mapStateToProps = (state) => {
+  return { currentItem: state.currentItem };
+};
+
+export default connect(mapStateToProps, { selectItem, unSelectItem })(FoodItem);
