@@ -5,7 +5,7 @@ const INITIAL_STATE = {
   name: "",
   size: "L",
   price: 0,
-  supluments: [],
+  supluments: {},
   quantity: 1,
   prices: [0, 0, 0],
 };
@@ -38,6 +38,20 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, quantity: state.quantity + 1 };
     case actionName.DECREMENT:
       return { ...state, quantity: state.quantity - 1 };
+    case actionName.SELECT_SUPLUMENT:
+      return {
+        ...state,
+        supluments: {
+          ...state.supluments,
+          [action.payload.name]: action.payload,
+        },
+      };
+    case actionName.UNSELECT_SUPLUMENT:
+      return {
+        ...state,
+        supluments: _.omit(state.supluments, [action.payload.name]),
+      };
+
     default:
       return state;
   }

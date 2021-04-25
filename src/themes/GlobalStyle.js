@@ -25,10 +25,6 @@ const GlobalStyle = createGlobalStyle`
 
     }
 
-    .suplumentActive{
-        background-color: ${(props) => props.theme.colors.purple};
-        color: #fff;
-    }
 `;
 
 export default GlobalStyle;

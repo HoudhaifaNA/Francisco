@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
-import styled, { keyframes } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 
-import { toggleDropdown } from "../../actions";
+import {
+  toggleDropdown,
+  selectSuplument,
+  unSelectSuplument,
+} from "../../actions";
 import Icon from "../../components/Icon";
 
 const dropdownAnimation = keyframes`
@@ -38,7 +42,12 @@ const DropdownList = styled.ul`
   list-style: none;
   border-top: 0.1rem solid grey;
   opacity: 0;
-  animation: ${dropdownAnimation} 0.2s ease-in-out forwards;
+  animation: ${(props) =>
+    props.state === "open"
+      ? css`
+          ${dropdownAnimation} 0.2s ease-in-out forwards
+        `
+      : ""};
 `;
 
 const DropdownItem = styled.li`
@@ -49,11 +58,25 @@ const DropdownItem = styled.li`
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
-
-  s {
-    background-color: red;
-  }
+  background-color: ${(props) =>
+    props.selected
+      ? css`
+          ${props.theme.colors.purple}
+        `
+      : "#fff"};
+  ${(props) =>
+    props.selected
+      ? css`
+          background-color: ${props.theme.colors.purple};
+          color: #fff;
+        `
+      : ""}
 `;
+
+const supluments = [
+  { name: "Cheddar", price: [50, 100, 150] },
+  { name: "Boise", price: [150, 300, 400] },
+];
 
 // JSX
 
@@ -64,24 +87,31 @@ const SuplumentsDrowpdown = (props) => {
       : props.toggleDropdown("close");
   };
 
-  const renderSuplumentsItems = () => {
+  const Item = (sup) => {
+    const [isSelected, selectItem] = useState(false);
+    const onItemClick = () => {
+      isSelected === false ? selectItem(true) : selectItem(false);
+      if (isSelected === false) props.selectSuplument(sup);
+      if (isSelected === true) props.unSelectSuplument(sup);
+    };
+
     return (
-      <DropdownItem
-        onClick={(e) => e.target.classList.toggle("suplumentActive")}
-      >
-        <span>Cheddar</span> <span>150.00DA</span>
+      <DropdownItem key={sup.name} onClick={onItemClick} selected={isSelected}>
+        <span>{sup.name}</span> <span>{sup.price[0]}.00DA</span>
       </DropdownItem>
     );
   };
 
-  const renderDropdown = () => {
-    if (props.dropdown === "open") {
-      return (
-        <DropdownList state={props.dropdown}>
-          {renderSuplumentsItems()}
-        </DropdownList>
-      );
-    }
+  const RenderSuplumentsItems = () => {
+    return supluments.map((sup) => Item(sup));
+  };
+
+  const RenderDropdown = () => {
+    return (
+      <DropdownList state={props.dropdown}>
+        {RenderSuplumentsItems()}
+      </DropdownList>
+    );
   };
 
   return (
@@ -92,13 +122,16 @@ const SuplumentsDrowpdown = (props) => {
           <Icon icon="dropdown" />
         </svg>
       </DropdownHeader>
-      {renderDropdown()}
+      {RenderDropdown()}
     </Wrapper>
   );
 };
+
 const mapStateToProps = (state) => {
   return { dropdown: state.dropdown };
 };
-export default connect(mapStateToProps, { toggleDropdown })(
-  SuplumentsDrowpdown
-);
+export default connect(mapStateToProps, {
+  toggleDropdown,
+  selectSuplument,
+  unSelectSuplument,
+})(SuplumentsDrowpdown);

@@ -31,3 +31,11 @@ export const increment = () => {
 export const decrement = () => {
   return { type: actionNames.DECREMENT };
 };
+
+export const selectSuplument = (suplument) => {
+  return { type: actionNames.SELECT_SUPLUMENT, payload: suplument };
+};
+
+export const unSelectSuplument = (name) => {
+  return { type: actionNames.UNSELECT_SUPLUMENT, payload: name };
+};
