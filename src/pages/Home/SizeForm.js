@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 
-import { updateSize } from "../../actions";
+import { updateSize, updateCurrentItem } from "../../actions";
 
 import styled from "styled-components";
 
@@ -38,6 +38,7 @@ const SizeForm = (props) => {
   const sizeClicked = (selection, size) => {
     selectSize(selection);
     props.updateSize(size);
+    props.updateCurrentItem();
   };
 
   return (
@@ -71,4 +72,6 @@ const mapStateToProps = (state) => {
   return { currentItem: state.currentItem };
 };
 
-export default connect(mapStateToProps, { updateSize })(SizeForm);
+export default connect(mapStateToProps, { updateSize, updateCurrentItem })(
+  SizeForm
+);

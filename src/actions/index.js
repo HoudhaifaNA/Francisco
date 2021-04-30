@@ -1,7 +1,7 @@
 import actionNames from "../actionNames";
 
 export const toggleDropdown = (action) => {
-  return { type: actionNames.EXTEND_DROPDOWN, payload: action };
+  return { type: actionNames.TOGGLE_DROPDOWN, payload: action };
 };
 
 export const selectItem = (item) => {
@@ -38,4 +38,23 @@ export const selectSuplument = (suplument) => {
 
 export const unSelectSuplument = (name) => {
   return { type: actionNames.UNSELECT_SUPLUMENT, payload: name };
+};
+
+export const moveItem = (item) => {
+  return { type: actionNames.MOVE_ITEM, payload: item };
+};
+export const clearCurrentItem = () => {
+  return { type: actionNames.CLEAR_CURRENT_ITEM };
+};
+
+export const incrementOrderItem = (id) => {
+  return { type: actionNames.INCREMENET_ORDER_ITEM, payload: id };
+};
+
+export const decrementOrderItem = (id) => {
+  return { type: actionNames.DECREMENT_ORDER_ITEM, payload: id };
+};
+
+export const deleteOrderItem = (id) => {
+  return { type: actionNames.DELETE_ORDER_ITEM, payload: id };
 };

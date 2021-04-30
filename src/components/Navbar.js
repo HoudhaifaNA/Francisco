@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import styled from "styled-components";
+import uniqid from "uniqid";
+import styled, { css } from "styled-components";
 
 import Icon from "./Icon";
 
@@ -38,6 +39,8 @@ const NavbarItem = styled.li`
   align-items: center;
   font-weight: 600;
   font-size: 1.6rem;
+  background-color: ${(props) =>
+    props.path === window.location.pathname ? "#F4F4F4" : "transparent"};
   cursor: pointer;
 
   &:hover {
@@ -45,7 +48,8 @@ const NavbarItem = styled.li`
   }
 
   a {
-    color: ${(props) => props.theme.colors.greyDark};
+    color: ${(props) =>
+      props.path === window.location.pathname ? "#FF2351" : "#606060"};
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -53,14 +57,9 @@ const NavbarItem = styled.li`
     height: 100%;
   }
 
-  &:nth-child(1) {
-    background-color: ${(props) => props.theme.colors.greyHover};
-    a {
-      color: ${(props) => props.theme.colors.primary};
-    }
-    svg {
-      fill: ${(props) => props.theme.colors.primary};
-    }
+  svg {
+    fill: ${(props) =>
+      props.path === window.location.pathname ? "#FF2351" : "#606060"};
   }
 `;
 const NavIcon = styled.svg`
@@ -78,13 +77,17 @@ const NavLogout = styled.div`
 `;
 
 const Navbar = () => {
+  const [location, setLocation] = useState("home");
+  const rerender = () => {
+    setLocation(uniqid());
+  };
   return (
     <Wrapper>
       <Logo>
         <img src="/assets/logo.png" alt="Francisco Logo" />
       </Logo>
       <NavbarList>
-        <NavbarItem>
+        <NavbarItem path="/home" onClick={rerender}>
           <Link to="home">
             <NavIcon>
               <Icon icon="home" />
@@ -92,7 +95,7 @@ const Navbar = () => {
             Accueil
           </Link>
         </NavbarItem>
-        <NavbarItem>
+        <NavbarItem path="/dashboard" onClick={rerender}>
           <Link to="dashboard">
             <NavIcon>
               <Icon icon="stats" />
@@ -100,15 +103,15 @@ const Navbar = () => {
             Recette
           </Link>
         </NavbarItem>
-        <NavbarItem>
-          <Link to="Menu">
+        <NavbarItem path="/menu" onClick={rerender}>
+          <Link to="menu">
             <NavIcon>
               <Icon icon="hot-food" />
             </NavIcon>
             Menu
           </Link>
         </NavbarItem>
-        <NavbarItem>
+        <NavbarItem path="/accounts" onClick={rerender}>
           <Link to="accounts">
             <NavIcon>
               <Icon icon="user" />

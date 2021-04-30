@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
 
@@ -49,9 +49,19 @@ const ItemPrice = styled.h4`
 
 const FoodItem = (props) => {
   const [isSelected, selectItem] = useState(false);
+  useEffect(() => {
+    if (props.selectedItems[props.id] !== undefined) {
+      selectItem(true);
+    } else {
+      selectItem(false);
+    }
+  }, [props.selectedItems, props.id]);
   const onItemClick = () => {
-    isSelected === false ? selectItem(true) : selectItem(false);
-    if (isSelected === false) props.selectItem({ ...props });
+    props.selectedItems[props.id] === undefined
+      ? selectItem(true)
+      : selectItem(false);
+    const { name, prices, id } = props;
+    if (isSelected === false) props.selectItem({ name, prices, id });
     if (isSelected === true) props.unSelectItem(props.id);
     props.updateCurrentItem(props.selectedItems);
   };
@@ -68,7 +78,7 @@ const FoodItem = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  return { selectedItems: state.selectedItems };
+  return { selectedItems: state.selectedItems, currentItem: state.currentItem };
 };
 
 export default connect(mapStateToProps, {

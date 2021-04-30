@@ -8,6 +8,8 @@ export default (state = {}, action) => {
       return { ...state, [action.payload.id]: action.payload };
     case actionName.UNSELECT_ITEM:
       return _.omit(state, [action.payload]);
+    case actionName.CLEAR_CURRENT_ITEM:
+      return {};
     default:
       return state;
   }

@@ -1,13 +1,10 @@
 import React from "react";
-import { connect } from "react-redux";
 import styled from "styled-components";
-
-import { increment, decrement } from "../actions";
 
 const Wrapper = styled.div`
   width: 13rem;
   height: 3.5rem;
-  margin-left: 3rem;
+  margin-left: ${(props) => props.marginLeft};
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -40,22 +37,15 @@ const IncrementButton = styled(Button)`
 `;
 
 const QuantityController = (props) => {
-  const increment = () => props.increment();
-  const decrement = () => (props.quantity !== 1 ? props.decrement() : 1);
   return (
-    <Wrapper>
-      <DecrementButton onClick={decrement} quantity={props.quantity}>
+    <Wrapper marginLeft={props.marginLeft}>
+      <DecrementButton onClick={props.decrement} quantity={props.quantity}>
         -
       </DecrementButton>
       <Quantity>{props.quantity}</Quantity>
-      <IncrementButton onClick={increment}>+</IncrementButton>
+      <IncrementButton onClick={props.increment}>+</IncrementButton>
     </Wrapper>
   );
 };
-const mapStateToProps = (state) => {
-  return { quantity: state.currentItem.quantity };
-};
 
-export default connect(mapStateToProps, { increment, decrement })(
-  QuantityController
-);
+export default QuantityController;

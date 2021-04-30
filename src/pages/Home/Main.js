@@ -14,7 +14,7 @@ const showPage = keyframes`
 `;
 
 const Wrapper = styled.main`
-  width: 65vw;
+  width: 64vw;
   height: 100vh;
   min-height: 100vh;
   opacity: 0;
@@ -32,7 +32,7 @@ const Wrapper = styled.main`
 const PageHeader = styled.header`
   width: 100%;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
 `;
 

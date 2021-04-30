@@ -6,6 +6,7 @@ const INITIAL_STATE = {
   size: "L",
   price: 0,
   supluments: {},
+  suplumentsTotal: 0,
   quantity: 1,
   prices: [0, 0, 0],
 };
@@ -18,26 +19,46 @@ const finalPrice = (size, prices) => {
   return price;
 };
 
+const calcFinalPrices = (pricesList) => {
+  let list = _.values(pricesList).map((it) => [...it.prices]);
+  let prices =
+    list.length > 0
+      ? list.reduce((a, b) => a.map((c, i) => c + b[i]))
+      : [0, 0, 0];
+  return prices;
+};
+
 // eslint-disable-next-line import/no-anonymous-default-export
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case actionName.UPDATE_CURRENT_ITEM:
       let names = _.values(action.payload).map((it) => it.name);
       let name = names.join(" / ");
-      let pricesList = _.values(action.payload).map((it) => [...it.prices]);
-      let prices =
-        pricesList.length > 0
-          ? pricesList.reduce((a, b) => a.map((c, i) => c + b[i]))
-          : [0, 0, 0];
-      const price = finalPrice(state.size, prices);
-      return { ...state, prices, name, price };
+      let prices = calcFinalPrices(action.payload);
+      let suplumentsTotal = finalPrice(
+        state.size,
+        calcFinalPrices(state.supluments)
+      );
+      const price =
+        (finalPrice(state.size, prices) + suplumentsTotal) * state.quantity;
+      return {
+        ...state,
+        prices,
+        name,
+        price,
+      };
     case actionName.UPDATE_SIZE:
-      const editedPrice = finalPrice(action.payload, state.prices);
-      return { ...state, size: action.payload, price: editedPrice };
+      return { ...state, size: action.payload };
     case actionName.INCREMENET:
-      return { ...state, quantity: state.quantity + 1 };
+      return {
+        ...state,
+        quantity: state.quantity + 1,
+      };
     case actionName.DECREMENT:
-      return { ...state, quantity: state.quantity - 1 };
+      return {
+        ...state,
+        quantity: state.quantity - 1,
+      };
     case actionName.SELECT_SUPLUMENT:
       return {
         ...state,
@@ -51,7 +72,8 @@ export default (state = INITIAL_STATE, action) => {
         ...state,
         supluments: _.omit(state.supluments, [action.payload.name]),
       };
-
+    case actionName.CLEAR_CURRENT_ITEM:
+      return INITIAL_STATE;
     default:
       return state;
   }
