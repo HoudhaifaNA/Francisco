@@ -34,7 +34,7 @@ const SizeChecker = styled.div`
 `;
 
 const SizeForm = (props) => {
-  const [selection, selectSize] = useState([false, false, false]);
+  const [selection, selectSize] = useState([true, false, false]);
   const sizeClicked = (selection, size) => {
     selectSize(selection);
     props.updateSize(size);

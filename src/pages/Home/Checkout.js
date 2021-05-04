@@ -1,29 +1,38 @@
+import _ from "lodash";
 import React from "react";
+import { connect } from "react-redux";
 import styled from "styled-components";
 
-// import PrimaryButton from "../../components/PrimaryButton.style";
-// import Icon from "../../components/Icon";
 import Title from "../../components/Title";
-// import CheckoutBlank from "./CheckoutBlank";
+import CheckoutBlank from "./CheckoutBlank";
 import OrderList from "./OrderList";
+import FinalConfig from "./FinalConfig";
 
 const Wrapper = styled.aside`
+  position: relative;
   width: 22vw;
-  height: 100vh;
   padding: 2rem 1rem;
 `;
 
-const Checkout = () => {
+const Checkout = (props) => {
+  const renderOrderList = () => {
+    if (props.items.length > 0) {
+      return <OrderList />;
+    } else {
+      return <CheckoutBlank />;
+    }
+  };
   return (
     <Wrapper>
       <Title>Order</Title>
-      <OrderList />
-      {/* <CheckoutBlank /> */}
-      {/* <PrimaryButton width="100%" height="5rem">
-        Order
-      </PrimaryButton> */}
+      {renderOrderList()}
+      <FinalConfig />
     </Wrapper>
   );
 };
 
-export default Checkout;
+const mapStateToProps = (state) => {
+  return { items: _.values(state.order.items) };
+};
+
+export default connect(mapStateToProps)(Checkout);

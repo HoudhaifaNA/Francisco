@@ -8,6 +8,7 @@ import {
   clearCurrentItem,
   unSelectItem,
   toggleDropdown,
+  calculateTotal,
 } from "../../actions";
 import SizeForm from "./SizeForm";
 import SuplumentsDrowpdown from "./SuplumentsDrowpdown";
@@ -28,6 +29,7 @@ const OrderController = (props) => {
       props.moveItem({ ...props.currentItem, id: uniqid() });
       props.clearCurrentItem();
       props.toggleDropdown("close");
+      props.calculateTotal();
     }
   };
   return (
@@ -56,4 +58,5 @@ export default connect(mapStateToProps, {
   clearCurrentItem,
   unSelectItem,
   toggleDropdown,
+  calculateTotal,
 })(OrderController);

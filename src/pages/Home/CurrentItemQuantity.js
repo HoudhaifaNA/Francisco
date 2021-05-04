@@ -22,6 +22,7 @@ const CurrentItemQuantity = (props) => {
     />
   );
 };
+
 const mapStateToProps = (state) => {
   return { quantity: state.currentItem.quantity };
 };

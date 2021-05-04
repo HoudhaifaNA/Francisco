@@ -1,10 +1,23 @@
 import React from "react";
 import { connect } from "react-redux";
 
+import {
+  incrementOrderItem,
+  decrementOrderItem,
+  calculateTotal,
+} from "../../actions";
+
 import QuantityController from "../../components/QuantityController";
-const CurrentItemQuantity = (props) => {
-  const increment = () => props.increment();
-  const decrement = () => (props.quantity !== 1 ? props.decrement() : 1);
+
+const EditItemQuantity = (props) => {
+  const increment = () => {
+    props.incrementOrderItem(props.id);
+    props.calculateTotal();
+  };
+  const decrement = () => {
+    if (props.quantity !== 1) props.decrementOrderItem(props.id);
+    props.calculateTotal();
+  };
   return (
     <QuantityController
       marginLeft="0"
@@ -14,8 +27,9 @@ const CurrentItemQuantity = (props) => {
     />
   );
 };
-const mapStateToProps = (state) => {
-  return { quantity: state.currentItem.quantity };
-};
 
-export default connect(mapStateToProps, {})(CurrentItemQuantity);
+export default connect(null, {
+  incrementOrderItem,
+  decrementOrderItem,
+  calculateTotal,
+})(EditItemQuantity);

@@ -55,6 +55,31 @@ export const decrementOrderItem = (id) => {
   return { type: actionNames.DECREMENT_ORDER_ITEM, payload: id };
 };
 
+export const editOrderItemPrice = (id, value) => {
+  return { type: actionNames.EDIT_ORDER_ITEM_PRICE, payload: { id, value } };
+};
+
 export const deleteOrderItem = (id) => {
   return { type: actionNames.DELETE_ORDER_ITEM, payload: id };
+};
+
+export const toggleRetard = (type) => {
+  return { type: actionNames.TOGGLE_RETARD, payload: type };
+};
+
+export const insertRetardTime = (time) => {
+  return { type: actionNames.INSERT_RETARD_TIME, payload: time };
+};
+
+export const selectOrderType = (type) => {
+  return { type: actionNames.SELECT_ORDER_TYPE, payload: type };
+};
+
+export const selectTypeInfo = (field, value) => {
+  return { type: actionNames.SELECT_TYPE_INFO, payload: { field, value } };
+};
+export const calculateTotal = () => (dispatch, getState) => {
+  const { order } = getState();
+
+  dispatch({ type: actionNames.CALCULATE_TOTAL, payload: order.items });
 };

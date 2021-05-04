@@ -21,6 +21,7 @@ const CheckoutBlankIcon = styled.svg`
 const CheckoutBlankText = styled.h2`
   margin-top: 4rem;
   color: ${(props) => props.theme.colors.greyDark};
+  text-align: center;
 `;
 
 const CheckoutBlank = () => {

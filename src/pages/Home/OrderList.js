@@ -3,15 +3,15 @@ import React from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
 
-// import Icon from "../../components/Icon";
 import OrderItem from "./OrderItem";
 
 const List = styled.div`
   position: relative;
   z-index: 150;
   width: 100%;
-  height: 40vh;
+  max-height: 19rem;
   margin-top: 5rem;
+  overflow-y: scroll;
 `;
 
 const OrderList = (props) => {
