@@ -43,7 +43,7 @@ const ItemName = styled.h2`
 `;
 const ItemPrice = styled.h4`
   font-size: 1.4rem;
-  font-weight: 500;
+  font-weight: 600;
   text-transform: capitalize;
 `;
 

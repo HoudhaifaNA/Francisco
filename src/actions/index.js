@@ -1,4 +1,7 @@
+import uniqid from "uniqid";
 import actionNames from "../actionNames";
+import history from "../History";
+import axiosAPI from "../axiosAPI";
 
 export const toggleDropdown = (action) => {
   return { type: actionNames.TOGGLE_DROPDOWN, payload: action };
@@ -82,4 +85,22 @@ export const calculateTotal = () => (dispatch, getState) => {
   const { order } = getState();
 
   dispatch({ type: actionNames.CALCULATE_TOTAL, payload: order.items });
+};
+
+export const selectMenuSection = (section) => {
+  return { type: actionNames.SELECT_MENU_SECTION, payload: section };
+};
+
+export const inputChange = (field, value) => {
+  return { type: actionNames.INPUT_CHANGE, payload: { field, value } };
+};
+
+export const createItem = () => async (dispatch, getState) => {
+  const { menu } = getState();
+
+  const res = await axiosAPI.post(`/${menu.type}`, {
+    ...menu.postItem,
+    id: uniqid(),
+  });
+  history.push("/menu");
 };

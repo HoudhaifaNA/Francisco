@@ -1,0 +1,40 @@
+{
+  "Categories": [
+    {
+      "Name": "Dada",
+      "id": 1
+    },
+    {
+      "Name": "Pizza",
+      "id": "koecy6pk"
+    }
+  ],
+  "Articles": [
+    {
+      "Name": "Pizza Boise",
+      "Category": "pizza",
+      "Price L": "150",
+      "Price XL": "805",
+      "Price XXL": "690",
+      "id": "koeczwt4"
+    },
+    {
+      "Name": "Houdhaifa",
+      "Category": "5151",
+      "Price L": "150",
+      "Price XL": "90",
+      "Price XXL": "90",
+      "id": "koeikxib"
+    }
+  ],
+  "Supplements": [
+    {
+      "Name": "Zbib",
+      "Category": "zbib people",
+      "Price L": "150",
+      "Price XL": "600",
+      "Price XXL": "990",
+      "id": "koeifn6m"
+    }
+  ]
+}
