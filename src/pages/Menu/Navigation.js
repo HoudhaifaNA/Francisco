@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
 
@@ -36,6 +36,10 @@ const Navigation = (props) => {
     props.selectMenuSection(section);
   };
 
+  useEffect(() => {
+    props.selectMenuSection(props.section);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [props.section]);
   return (
     <Wrapper>
       <NavList>

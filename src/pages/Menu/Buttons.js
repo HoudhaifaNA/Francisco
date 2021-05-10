@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
+import onClose from "./closePage";
+
 const BoxActions = styled.div`
   position: absolute;
   bottom: 0;
@@ -36,7 +38,12 @@ const renderButtons = () => {
   if (window.location.pathname === "/new") {
     return (
       <>
-        <Button color="#000" background="transparent">
+        <Button
+          type="button"
+          color="#000"
+          background="transparent"
+          onClick={onClose}
+        >
           BACK
         </Button>
         <Button type="submit" color="#fff" background="#0085FF" hover="#006DD1">
@@ -44,7 +51,7 @@ const renderButtons = () => {
         </Button>
       </>
     );
-  } else if (window.location.pathname === "/edit") {
+  } else if (window.location.pathname.startsWith("/edit/")) {
     return (
       <>
         <Button color="#626463" background="transparent">

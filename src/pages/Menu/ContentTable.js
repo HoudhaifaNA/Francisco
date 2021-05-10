@@ -1,4 +1,6 @@
+import _ from "lodash";
 import React from "react";
+import { connect } from "react-redux";
 import styled from "styled-components";
 
 import Item from "./ItemTable";
@@ -9,24 +11,71 @@ const Wrapper = styled.div`
 `;
 
 const ContentTable = (props) => {
+  const renderItems = () => {
+    if (props.items.length > 0) {
+      return props.items.map((it) => {
+        if (props.type === "Categories") {
+          return (
+            <Item
+              key={it.id}
+              id={it.id}
+              fields={[`${it.name}`, "--", "--", "--", "--", "--"]}
+            />
+          );
+        } else {
+          return (
+            <Item
+              key={it.id}
+              id={it.id}
+              fields={[
+                `${it.name}`,
+                `${it.Category}`,
+                `${it["Price L"]}`,
+                `${it["Price XL"]}`,
+                `${it["Price XXL"]}`,
+                "--",
+              ]}
+            />
+          );
+        }
+      });
+    }
+  };
+
+  const renderHeader = () => {
+    if (props.type === "Categories") {
+      return (
+        <Item
+          header={true}
+          fields={["Name", "Articles", "--", "--", "-", "Actions"]}
+        />
+      );
+    } else {
+      return (
+        <Item
+          header={true}
+          fields={[
+            "Name",
+            "Category",
+            "Price (L)",
+            "Price (XL)",
+            "Price (XXL)",
+            "Actions",
+          ]}
+        />
+      );
+    }
+  };
+
   return (
     <Wrapper>
-      <Item
-        header={true}
-        fields={[
-          "Name",
-          "Articles",
-          "Price (L)",
-          "Price (XL)",
-          "Price (XXL)",
-          "Actions",
-        ]}
-      />
-      <Item fields={["Pizza ", "250", "--", "--", "--", "Actions"]} />
-      <Item fields={["Pizza ", "250", "--", "--", "--", "Actions"]} />
-      <Item fields={["Pizza ", "250", "--", "--", "--", "Actions"]} />
+      {renderHeader()}
+      {renderItems()}
     </Wrapper>
   );
 };
 
-export default ContentTable;
+const mapStateToProps = (state) => {
+  return { items: _.values(state.menu.items), type: state.menu.type };
+};
+export default connect(mapStateToProps)(ContentTable);

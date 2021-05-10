@@ -41,6 +41,10 @@ const FormGroup = (props) => {
   const onInputChange = (field, e) => {
     props.inputChange(field, e.target.value);
   };
+  let value;
+  window.location.pathname.startsWith("/edit/")
+    ? (value = props.menu.editItem[props.label])
+    : (value = props.menu.postItem[props.label]);
   return (
     <Wrapper>
       <FormLabel htmlFor={props.label}>{props.label}</FormLabel>
@@ -48,6 +52,7 @@ const FormGroup = (props) => {
         type={props.type}
         id={props.label}
         placeholder={props.label}
+        value={value}
         required
         onChange={(e) => onInputChange(props.label, e)}
       />

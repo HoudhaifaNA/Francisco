@@ -1,6 +1,9 @@
 import React from "react";
+import { connect } from "react-redux";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
+import { setEditItem } from "../../actions";
 import Icon from "../../components/Icon";
 
 const Wrapper = styled.div`
@@ -42,12 +45,38 @@ const ItemField = styled.div`
   height: 100%;
   display: flex;
   align-items: center;
+
   font-size: 1.2rem;
   text-transform: uppercase;
   padding: 0 1rem;
 `;
 
-const ContentTable = (props) => {
+const EditLink = styled.span`
+  a {
+    font-weight: 700;
+    color: #3861fb;
+    text-decoration: none;
+    text-transform: capitalize;
+  }
+`;
+
+const ItemTable = (props) => {
+  const onEditClick = () => {
+    props.setEditItem(props.id);
+  };
+  const renderActionsSide = () => {
+    if (props.header) {
+      return <ItemField width="15%">{props.fields[5]}</ItemField>;
+    } else {
+      return (
+        <ItemField width="15%">
+          <EditLink onClick={onEditClick}>
+            <Link to={`edit/${props.id}`}>Edit</Link>
+          </EditLink>
+        </ItemField>
+      );
+    }
+  };
   return (
     <Wrapper header={props.header}>
       <ItemSelector>
@@ -60,9 +89,9 @@ const ContentTable = (props) => {
       <ItemField width="15%">{props.fields[2]}</ItemField>
       <ItemField width="15%">{props.fields[3]}</ItemField>
       <ItemField width="15%">{props.fields[4]}</ItemField>
-      <ItemField width="10%">{props.fields[5]}</ItemField>
+      {renderActionsSide()}
     </Wrapper>
   );
 };
 
-export default ContentTable;
+export default connect(null, { setEditItem })(ItemTable);

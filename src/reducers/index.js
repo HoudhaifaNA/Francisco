@@ -4,6 +4,7 @@ import selectedItems from "./selectedItems";
 import CurrentItemReducer from "./CurrentItemReducer";
 import orderReducer from "./orderReducer";
 import menuReducer from "./menuReducer";
+import errorReducer from "./errorReducer";
 
 export default combineReducers({
   dropdown: DropdownReducer,
@@ -11,4 +12,5 @@ export default combineReducers({
   currentItem: CurrentItemReducer,
   order: orderReducer,
   menu: menuReducer,
+  error: errorReducer,
 });

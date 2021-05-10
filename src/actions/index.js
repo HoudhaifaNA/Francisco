@@ -3,6 +3,10 @@ import actionNames from "../actionNames";
 import history from "../History";
 import axiosAPI from "../axiosAPI";
 
+export const showError = (error) => {
+  return { type: actionNames.CREATE_ERROR, payload: error };
+};
+
 export const toggleDropdown = (action) => {
   return { type: actionNames.TOGGLE_DROPDOWN, payload: action };
 };
@@ -87,10 +91,14 @@ export const calculateTotal = () => (dispatch, getState) => {
   dispatch({ type: actionNames.CALCULATE_TOTAL, payload: order.items });
 };
 
-export const selectMenuSection = (section) => {
-  return { type: actionNames.SELECT_MENU_SECTION, payload: section };
+export const selectMenuSection = (section) => async (dispatch) => {
+  const { data: items } = await axiosAPI.get(`/${section}`);
+  const { data: categories } = await axiosAPI.get("Categories");
+  dispatch({
+    type: actionNames.SELECT_MENU_SECTION,
+    payload: { section, items, categories },
+  });
 };
-
 export const inputChange = (field, value) => {
   return { type: actionNames.INPUT_CHANGE, payload: { field, value } };
 };
@@ -98,9 +106,20 @@ export const inputChange = (field, value) => {
 export const createItem = () => async (dispatch, getState) => {
   const { menu } = getState();
 
-  const res = await axiosAPI.post(`/${menu.type}`, {
+  await axiosAPI.post(`/${menu.type}`, {
     ...menu.postItem,
     id: uniqid(),
+  });
+  history.push("/menu");
+};
+export const setEditItem = (id) => {
+  return { type: actionNames.SET_EDIT_ITEM, payload: id };
+};
+export const editItem = (id) => async (dispatch, getState) => {
+  const { menu } = getState();
+
+  await axiosAPI.patch(`/${menu.type}/${id}`, {
+    ...menu.editItem,
   });
   history.push("/menu");
 };

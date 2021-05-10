@@ -9,7 +9,7 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 import Menu from "./pages/Menu/Menu";
 import Modal from "./pages/Menu/Modal";
 
-const Wrapper = styled.nav`
+const Wrapper = styled.div`
   display: flex;
 `;
 
@@ -23,7 +23,7 @@ const App = () => {
           <Route path="/dashboard" exact component={Dashboard} />
           <Route path="/menu" exact component={Menu} />
           <Route path="/new" exact component={Modal} />
-          <Route path="/edit" exact component={Modal} />
+          <Route path="/edit/:id" exact component={Modal} />
         </Switch>
       </Router>
     </Wrapper>

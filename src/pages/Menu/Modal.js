@@ -2,6 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import styled from "styled-components";
 
+import onClose from "./closePage";
+import ErrorBar from "../../components/ErrorBar";
 import Icon from "../../components/Icon";
 import MenuFrom from "./MenuForm";
 
@@ -48,15 +50,16 @@ const BoxClose = styled.svg`
 const Modal = (props) => {
   const Render = () => {
     return (
-      <Wrapper>
-        <DialogBox>
+      <Wrapper onClick={onClose}>
+        <ErrorBar />
+        <DialogBox onClick={(e) => e.stopPropagation()}>
           <BoxHeader>
             <BoxTitle>New Item</BoxTitle>
-            <BoxClose>
+            <BoxClose onClick={onClose}>
               <Icon icon="close" />
             </BoxClose>
           </BoxHeader>
-          <MenuFrom></MenuFrom>
+          <MenuFrom id={props.match.params.id}></MenuFrom>
         </DialogBox>
       </Wrapper>
     );
