@@ -1,4 +1,6 @@
 import { combineReducers } from "redux";
+
+import homeReducer from "./homeReducer";
 import DropdownReducer from "./DropdownReducer";
 import selectedItems from "./selectedItems";
 import CurrentItemReducer from "./CurrentItemReducer";
@@ -13,4 +15,5 @@ export default combineReducers({
   order: orderReducer,
   menu: menuReducer,
   error: errorReducer,
+  data: homeReducer,
 });

@@ -75,11 +75,6 @@ const DropdownItem = styled.li`
       : ""}
 `;
 
-const supluments = [
-  { name: "Cheddar", prices: [50, 100, 150] },
-  { name: "Boise", prices: [150, 300, 400] },
-];
-
 // JSX
 
 const SuplumentsDrowpdown = (props) => {
@@ -119,7 +114,9 @@ const SuplumentsDrowpdown = (props) => {
   };
 
   const RenderSuplumentsItems = () => {
-    return supluments.map((sup) => Item(sup));
+    if (props.suppluments.length > 0) {
+      return props.suppluments.map((sup) => Item(sup));
+    }
   };
 
   const RenderDropdown = () => {
@@ -144,7 +141,11 @@ const SuplumentsDrowpdown = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  return { dropdown: state.dropdown, currentItem: state.currentItem };
+  return {
+    dropdown: state.dropdown,
+    currentItem: state.currentItem,
+    suppluments: state.data.suppluments,
+  };
 };
 export default connect(mapStateToProps, {
   toggleDropdown,

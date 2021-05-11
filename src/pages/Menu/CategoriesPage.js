@@ -2,6 +2,7 @@ import React from "react";
 import styled, { keyframes } from "styled-components";
 
 import PageHeader from "./PageHeader";
+import DeleteController from "./DeleteController";
 import ContentTable from "./ContentTable";
 
 const showPage = keyframes`
@@ -20,6 +21,7 @@ const CategoriesPage = () => {
   return (
     <Wrapper>
       <PageHeader pageTitle="Categories" actionName="Categorie" />
+      <DeleteController />
       <ContentTable />
     </Wrapper>
   );

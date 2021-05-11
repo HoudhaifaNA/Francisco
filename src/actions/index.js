@@ -7,6 +7,27 @@ export const showError = (error) => {
   return { type: actionNames.CREATE_ERROR, payload: error };
 };
 
+export const getData = () => async (dispatch) => {
+  const { data: items } = await axiosAPI.get("/Articles");
+  const { data: categories } = await axiosAPI.get("/Categories");
+  const { data: suppluments } = await axiosAPI.get("/Supplements");
+
+  dispatch({
+    type: actionNames.GET_DATA,
+    payload: { items, categories, suppluments },
+  });
+};
+export const getItemsOnCategory = (category) => async (dispatch) => {
+  const { data: items } =
+    category === "Tout"
+      ? await axiosAPI.get(`/Articles`)
+      : await axiosAPI.get(`/Articles?Category=${category.toLowerCase()}`);
+
+  dispatch({
+    type: actionNames.GET_BASED_ON_CATEGORY,
+    payload: { items, category },
+  });
+};
 export const toggleDropdown = (action) => {
   return { type: actionNames.TOGGLE_DROPDOWN, payload: action };
 };
@@ -108,9 +129,18 @@ export const createItem = () => async (dispatch, getState) => {
 
   await axiosAPI.post(`/${menu.type}`, {
     ...menu.postItem,
+    Category: menu.postItem.Category
+      ? menu.postItem.Category.toLowerCase()
+      : "",
+    prices: [
+      menu.postItem["Price L"] * 1,
+      menu.postItem["Price XL"] * 1,
+      menu.postItem["Price XXL"] * 1,
+    ],
     id: uniqid(),
   });
   history.push("/menu");
+  dispatch({ type: actionNames.CREATE_ITEM });
 };
 export const setEditItem = (id) => {
   return { type: actionNames.SET_EDIT_ITEM, payload: id };
@@ -122,4 +152,15 @@ export const editItem = (id) => async (dispatch, getState) => {
     ...menu.editItem,
   });
   history.push("/menu");
+};
+
+export const selectToDelete = (id) => {
+  return { type: actionNames.SELECT_TO_DELETE, payload: id };
+};
+
+export const deletMenuItem = (id) => async (dispatch, getState) => {
+  const { menu } = getState();
+
+  await axiosAPI.delete(`/${menu.type}/${id}`);
+  window.location.reload();
 };

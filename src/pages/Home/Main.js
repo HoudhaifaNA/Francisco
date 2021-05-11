@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
 import styled, { keyframes } from "styled-components";
 
+import { getData } from "../../actions";
 import Title from "../../components/Title";
 import SearchBar from "./SearhBar";
 import Categories from "./Categories";
@@ -36,7 +38,10 @@ const PageHeader = styled.header`
   justify-content: space-between;
 `;
 
-const Main = () => {
+const Main = (props) => {
+  useEffect(() => {
+    props.getData();
+  });
   return (
     <Wrapper>
       <PageHeader>
@@ -50,4 +55,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default connect(null, { getData })(Main);

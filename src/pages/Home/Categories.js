@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from "react-redux";
 import styled from "styled-components";
 
 import CategoryItem from "./CategoryItem";
@@ -13,13 +14,22 @@ const CategoryList = styled.div`
   overflow-x: scroll;
   overflow-y: hidden;
 `;
-const Categories = () => {
+const Categories = (props) => {
+  const render = () => {
+    if (props.categories.length > 0) {
+      return props.categories.map((cat) => {
+        return <CategoryItem icon={cat.name.toLowerCase()} name={cat.name} />;
+      });
+    }
+  };
   return (
     <CategoryList>
       <CategoryItem icon="list" name="Tout" />
-      <CategoryItem icon="pizza" name="Pizza" />
+      {render()}
     </CategoryList>
   );
 };
-
-export default Categories;
+const mapStateToProps = (state) => {
+  return { categories: state.data.categories };
+};
+export default connect(mapStateToProps)(Categories);

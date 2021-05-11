@@ -1,9 +1,10 @@
+import _ from "lodash";
 import React from "react";
 import { connect } from "react-redux";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { Link } from "react-router-dom";
 
-import { setEditItem } from "../../actions";
+import { setEditItem, selectToDelete } from "../../actions";
 import Icon from "../../components/Icon";
 
 const Wrapper = styled.div`
@@ -32,12 +33,15 @@ const ItemSelectorSvg = styled.svg`
   border: 0.1rem inset ${(props) => props.theme.colors.greyDark};
   cursor: pointer;
 
-  &:hover {
-    width: 2.3rem;
-    height: 2.3rem;
-    fill: #2b92e4;
-    border: none;
-  }
+  ${(props) =>
+    props.selected
+      ? css`
+          width: 2.3rem;
+          height: 2.3rem;
+          fill: #2b92e4;
+          border: none;
+        `
+      : ""}
 `;
 
 const ItemField = styled.div`
@@ -64,6 +68,11 @@ const ItemTable = (props) => {
   const onEditClick = () => {
     props.setEditItem(props.id);
   };
+  const selectToDelete = () => {
+    if (props.header) props.selectToDelete("all");
+    if (!props.header) props.selectToDelete(props.id);
+  };
+
   const renderActionsSide = () => {
     if (props.header) {
       return <ItemField width="15%">{props.fields[5]}</ItemField>;
@@ -80,7 +89,11 @@ const ItemTable = (props) => {
   return (
     <Wrapper header={props.header}>
       <ItemSelector>
-        <ItemSelectorSvg>
+        <ItemSelectorSvg
+          onClick={selectToDelete}
+          // selected={props.toDeleteItems[props.id] !== undefined}
+          selected={_.values(props.toDeleteItems).indexOf(props.id) !== -1}
+        >
           <Icon icon="checkbox" />
         </ItemSelectorSvg>
       </ItemSelector>
@@ -94,4 +107,12 @@ const ItemTable = (props) => {
   );
 };
 
-export default connect(null, { setEditItem })(ItemTable);
+const mapStateToProps = (state) => {
+  return {
+    toDeleteItems: state.menu.toDeleteItems,
+  };
+};
+
+export default connect(mapStateToProps, { setEditItem, selectToDelete })(
+  ItemTable
+);

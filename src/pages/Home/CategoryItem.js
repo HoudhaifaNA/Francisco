@@ -1,6 +1,8 @@
 import React from "react";
-import styled from "styled-components";
+import { connect } from "react-redux";
+import styled, { css } from "styled-components";
 
+import { getItemsOnCategory } from "../../actions";
 import Icon from "../../components/Icon";
 
 const Category = styled.div`
@@ -14,6 +16,19 @@ const Category = styled.div`
   justify-content: center;
   border-radius: 0.5rem;
   cursor: pointer;
+
+  ${(props) =>
+    props.active
+      ? css`
+          background-color: ${(props) => props.theme.colors.yellow};
+          div {
+            border: none;
+          }
+          h4 {
+            color: #000;
+          }
+        `
+      : ""}
 `;
 
 const IconContainer = styled.div`
@@ -41,8 +56,11 @@ const CategoryName = styled.h4`
 `;
 
 const CategoryItem = (props) => {
+  const onCatClick = () => {
+    props.getItemsOnCategory(props.name);
+  };
   return (
-    <Category>
+    <Category active={props.data.type === props.name} onClick={onCatClick}>
       <IconContainer>
         <svg>
           <Icon icon={props.icon} />
@@ -53,4 +71,7 @@ const CategoryItem = (props) => {
   );
 };
 
-export default CategoryItem;
+const mapStateToProps = (state) => {
+  return { data: state.data };
+};
+export default connect(mapStateToProps, { getItemsOnCategory })(CategoryItem);

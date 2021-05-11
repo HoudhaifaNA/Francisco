@@ -16,7 +16,7 @@ const BoxActions = styled.div`
   border-top: 0.1rem solid rgba(0, 0, 0, 0.15);
 `;
 
-const Button = styled.button`
+export const Button = styled.button`
   padding: 1rem 3rem;
   background-color: ${(props) => props.background};
   color: ${(props) => props.color};

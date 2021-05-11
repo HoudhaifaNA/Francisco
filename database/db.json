@@ -2,22 +2,102 @@
   "Categories": [
     {
       "name": "Pizza",
-      "id": "koitgzbm"
+      "Category": "",
+      "prices": [
+        null,
+        null,
+        null
+      ],
+      "id": "kokbslsi"
     },
     {
-      "name": "Burger",
-      "id": "koith9j0"
+      "name": "burger",
+      "Category": "",
+      "prices": [
+        null,
+        null,
+        null
+      ],
+      "id": "kokbsoyz"
+    },
+    {
+      "name": "boisson",
+      "Category": "",
+      "prices": [
+        null,
+        null,
+        null
+      ],
+      "id": "kokbsruk"
     }
   ],
   "Articles": [
     {
-      "name": "Burger Speciala",
-      "Category": "Burger",
+      "name": "Pizza boise",
+      "Category": "pizza",
+      "Price L": "150",
+      "Price XL": "5006",
+      "Price XXL": "606",
+      "prices": [
+        150,
+        5006,
+        606
+      ],
+      "id": "kokbt6qp"
+    },
+    {
+      "name": "Burger Special",
+      "Category": "burger",
+      "Price L": "484",
+      "Price XL": "65465",
+      "Price XXL": "465456",
+      "prices": [
+        484,
+        65465,
+        465456
+      ],
+      "id": "kokbtg1h"
+    },
+    {
+      "name": "cici",
+      "Category": "boisson",
+      "Price L": "4564",
+      "Price XL": "564",
+      "Price XXL": "56456",
+      "prices": [
+        4564,
+        564,
+        56456
+      ],
+      "id": "kokbtmfb"
+    }
+  ],
+  "Supplements": [
+    {
+      "name": "Cheddar",
+      "Category": "Pizza",
+      "Price L": "100",
+      "Price XL": "200",
+      "Price XXL": "300",
+      "prices": [
+        100,
+        200,
+        300
+      ],
+      "id": "kok1sz93"
+    },
+    {
+      "name": "Crevette",
+      "Category": "Pizza",
       "Price L": "250",
       "Price XL": "500",
       "Price XXL": "600",
-      "id": "koithtey"
+      "prices": [
+        250,
+        500,
+        600
+      ],
+      "id": "kok1t6fz"
     }
-  ],
-  "Supplements": []
+  ]
 }
