@@ -29,6 +29,46 @@
         null
       ],
       "id": "kokbsruk"
+    },
+    {
+      "name": "nachos",
+      "Category": "",
+      "prices": [
+        null,
+        null,
+        null
+      ],
+      "id": "koldioh9"
+    },
+    {
+      "name": "Dessert",
+      "Category": "",
+      "prices": [
+        null,
+        null,
+        null
+      ],
+      "id": "koldj258"
+    },
+    {
+      "name": "Panini",
+      "Category": "",
+      "prices": [
+        null,
+        null,
+        null
+      ],
+      "id": "koldjdud"
+    },
+    {
+      "name": "Tacos",
+      "Category": "",
+      "prices": [
+        null,
+        null,
+        null
+      ],
+      "id": "koldkkx2"
     }
   ],
   "Articles": [
@@ -70,6 +110,58 @@
         56456
       ],
       "id": "kokbtmfb"
+    },
+    {
+      "name": "Nachos ",
+      "Category": "nachos",
+      "Price L": "350",
+      "Price XL": "500",
+      "Price XXL": "800",
+      "prices": [
+        350,
+        500,
+        800
+      ],
+      "id": "koldixmk"
+    },
+    {
+      "name": "Tacos ",
+      "Category": "tacos",
+      "Price L": "5",
+      "Price XL": "5",
+      "Price XXL": "5",
+      "prices": [
+        5,
+        5,
+        5
+      ],
+      "id": "koldksd3"
+    },
+    {
+      "name": "tiramisu",
+      "Category": "dessert",
+      "Price L": "5",
+      "Price XL": "655",
+      "Price XXL": "65",
+      "prices": [
+        5,
+        655,
+        65
+      ],
+      "id": "koldl2w4"
+    },
+    {
+      "name": "panini",
+      "Category": "panini",
+      "Price L": "56",
+      "Price XL": "5",
+      "Price XXL": "6565",
+      "prices": [
+        56,
+        5,
+        6565
+      ],
+      "id": "koldlc4m"
     }
   ],
   "Supplements": [
