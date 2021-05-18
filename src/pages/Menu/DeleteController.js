@@ -29,16 +29,19 @@ const DeleteItemsSvg = styled.svg`
 
 const DeleteController = (props) => {
   const handleDelete = () => {
-    props.toDeleteItems.forEach((it) => {
-      props.deletMenuItem(it);
-    });
+    if (props.selected.length > 0) {
+      props.selected.forEach((id) =>
+        setTimeout(() => {
+          props.deletMenuItem(id);
+        }, 1000)
+      );
+    }
   };
   const renderController = () => {
-    if (props.toDeleteItems.length > 0) {
-      console.log(props.toDeleteItems);
+    if (props.selected.length > 0) {
       return (
         <Wrapper>
-          <SelectedItems>{props.toDeleteItems.length} selected</SelectedItems>
+          <SelectedItems>{props.selected.length} selected</SelectedItems>
           <DeleteItemsSvg onClick={handleDelete}>
             <Icon icon="delete" />
           </DeleteItemsSvg>
@@ -50,7 +53,7 @@ const DeleteController = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  return { toDeleteItems: _.values(state.menu.toDeleteItems) };
+  return { selected: state.menu.selected };
 };
 
 export default connect(mapStateToProps, { deletMenuItem })(DeleteController);

@@ -91,8 +91,7 @@ const ItemTable = (props) => {
       <ItemSelector>
         <ItemSelectorSvg
           onClick={selectToDelete}
-          // selected={props.toDeleteItems[props.id] !== undefined}
-          selected={_.values(props.toDeleteItems).indexOf(props.id) !== -1}
+          selected={props.selected.indexOf(props.id) !== -1}
         >
           <Icon icon="checkbox" />
         </ItemSelectorSvg>
@@ -109,7 +108,7 @@ const ItemTable = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    toDeleteItems: state.menu.toDeleteItems,
+    selected: state.menu.selected,
   };
 };
 

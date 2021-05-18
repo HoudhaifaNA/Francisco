@@ -1,4 +1,3 @@
-import _ from "lodash";
 import actionName from "../actionNames";
 
 const INITIAL_STATE = {

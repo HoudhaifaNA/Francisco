@@ -7,7 +7,7 @@ const INITIAL_STATE = {
   categories: {},
   postItem: {},
   editItem: {},
-  toDeleteItems: {},
+  selected: [],
 };
 
 // eslint-disable-next-line import/no-anonymous-default-export
@@ -41,23 +41,24 @@ export default (state = INITIAL_STATE, action) => {
     case actionName.SET_EDIT_ITEM:
       return { ...state, editItem: state.items[action.payload] };
     case actionName.SELECT_TO_DELETE:
-      const id = action.payload;
-      let toDeleteItems;
-      if (state.toDeleteItems[id] === undefined && action.payload !== "all") {
-        toDeleteItems = { ...state.toDeleteItems, [id]: id };
+      if (
+        state.selected.indexOf(action.payload) === -1 &&
+        action.payload !== "all"
+      ) {
+        return { ...state, selected: [...state.selected, action.payload] };
       } else if (action.payload === "all") {
-        if (_.values(state.toDeleteItems).length === 0) {
-          toDeleteItems = _.values(state.items).map((it) => {
-            return it.id;
-          });
-          // toDeleteItems = _.keyBy(toDeleteItems, "id");
+        if (state.selected.length === 0) {
+          const ids = _.values(state.items).map((it) => it.id);
+          return { ...state, selected: ids };
         } else {
-          toDeleteItems = {};
+          return { ...state, selected: [] };
         }
       } else {
-        toDeleteItems = _.omit(state.toDeleteItems, id);
+        return {
+          ...state,
+          selected: _.remove(state.selected, (id) => id !== action.payload),
+        };
       }
-      return { ...state, toDeleteItems };
     default:
       return state;
   }

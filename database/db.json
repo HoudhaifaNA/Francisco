@@ -1,36 +1,6 @@
 {
   "Categories": [
     {
-      "name": "Pizza",
-      "Category": "",
-      "prices": [
-        null,
-        null,
-        null
-      ],
-      "id": "kokbslsi"
-    },
-    {
-      "name": "burger",
-      "Category": "",
-      "prices": [
-        null,
-        null,
-        null
-      ],
-      "id": "kokbsoyz"
-    },
-    {
-      "name": "boisson",
-      "Category": "",
-      "prices": [
-        null,
-        null,
-        null
-      ],
-      "id": "kokbsruk"
-    },
-    {
       "name": "nachos",
       "Category": "",
       "prices": [
@@ -41,26 +11,6 @@
       "id": "koldioh9"
     },
     {
-      "name": "Dessert",
-      "Category": "",
-      "prices": [
-        null,
-        null,
-        null
-      ],
-      "id": "koldj258"
-    },
-    {
-      "name": "Panini",
-      "Category": "",
-      "prices": [
-        null,
-        null,
-        null
-      ],
-      "id": "koldjdud"
-    },
-    {
       "name": "Tacos",
       "Category": "",
       "prices": [
@@ -69,6 +19,16 @@
         null
       ],
       "id": "koldkkx2"
+    },
+    {
+      "name": "pizza",
+      "Category": "",
+      "prices": [
+        null,
+        null,
+        null
+      ],
+      "id": "kosuyf16"
     }
   ],
   "Articles": [
@@ -190,6 +150,38 @@
         600
       ],
       "id": "kok1t6fz"
+    }
+  ],
+  "orders": [
+    {
+      "items": {
+        "kot0t3yb": {
+          "name": "tiramisu",
+          "size": "L",
+          "price": 20,
+          "supluments": {},
+          "suplumentsTotal": 0,
+          "basePrice": 5,
+          "quantity": 4,
+          "category": "dessert",
+          "prices": [
+            5,
+            655,
+            65
+          ],
+          "id": "kot0t3yb"
+        }
+      },
+      "total": 20,
+      "retard": false,
+      "retardTime": "",
+      "type": "A Table",
+      "tableNumber": 1,
+      "phoneNumber": 0,
+      "address": "",
+      "time": "20:48",
+      "id": "kot0t4rr",
+      "number": 10
     }
   ]
 }

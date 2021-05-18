@@ -12,6 +12,10 @@ const List = styled.div`
   max-height: 19rem;
   margin-top: 5rem;
   overflow-y: scroll;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 const OrderList = (props) => {

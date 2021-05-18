@@ -18,7 +18,13 @@ const Categories = (props) => {
   const render = () => {
     if (props.categories.length > 0) {
       return props.categories.map((cat) => {
-        return <CategoryItem icon={cat.name.toLowerCase()} name={cat.name} />;
+        return (
+          <CategoryItem
+            icon={cat.name.toLowerCase()}
+            key={cat.name}
+            name={cat.name}
+          />
+        );
       });
     }
   };

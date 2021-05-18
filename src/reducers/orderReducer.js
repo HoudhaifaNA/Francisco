@@ -63,7 +63,13 @@ export default (state = INITIAL_STATE, action) => {
     case actionNames.INSERT_RETARD_TIME:
       return { ...state, retardTime: action.payload };
     case actionNames.SELECT_ORDER_TYPE:
-      return { ...state, type: action.payload };
+      return {
+        ...state,
+        type: action.payload,
+        phoneNumber: null,
+        address: null,
+        tableNumber: null,
+      };
     case actionNames.SELECT_TYPE_INFO:
       return { ...state, [action.payload.field]: action.payload.value };
     case actionNames.CALCULATE_TOTAL:
@@ -71,6 +77,8 @@ export default (state = INITIAL_STATE, action) => {
         .map((it) => it.price)
         .reduce((a, b) => a + b, 0);
       return { ...state, total: total };
+    case actionNames.CHECKOUT_ORDER:
+      return INITIAL_STATE;
     default:
       return state;
   }

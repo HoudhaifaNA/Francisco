@@ -24,6 +24,7 @@ const Items = (props) => {
             key={it.id}
             image={it.Category}
             name={it.name}
+            category={it.Category}
             prices={[
               it["Price L"] * 1,
               it["Price XL"] * 1,

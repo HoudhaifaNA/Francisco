@@ -8,6 +8,7 @@ import {
   insertRetardTime,
   selectOrderType,
   selectTypeInfo,
+  checkoutOrder,
 } from "../../actions";
 import Input from "./Input.style";
 import PrimaryButton from "../../components/PrimaryButton.style";
@@ -121,7 +122,9 @@ const FinalConfig = (props) => {
   const insertTypeInfo = (field, value) => {
     props.selectTypeInfo(field, value);
   };
-
+  const checkoutOrder = () => {
+    if (_.values(props.order.items).length > 0) props.checkoutOrder();
+  };
   const renderRetardInput = () => {
     if (retard) {
       return (
@@ -212,7 +215,7 @@ const FinalConfig = (props) => {
   return (
     <Wrapper>
       {renderConfig()}
-      <PrimaryButton width="100%" height="5rem">
+      <PrimaryButton width="100%" height="5rem" onClick={checkoutOrder}>
         Order
       </PrimaryButton>
     </Wrapper>
@@ -228,4 +231,5 @@ export default connect(mapStateToProps, {
   insertRetardTime,
   selectOrderType,
   selectTypeInfo,
+  checkoutOrder,
 })(FinalConfig);

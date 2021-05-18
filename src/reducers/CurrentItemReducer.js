@@ -9,6 +9,7 @@ const INITIAL_STATE = {
   suplumentsTotal: 0,
   basePrice: 0,
   quantity: 1,
+  category: "",
   prices: [0, 0, 0],
 };
 
@@ -42,12 +43,17 @@ export default (state = INITIAL_STATE, action) => {
       );
       const price =
         (finalPrice(state.size, prices) + suplumentsTotal) * state.quantity;
+      const category =
+        _.values(action.payload).length > 0
+          ? _.values(action.payload)[0].category
+          : "";
       return {
         ...state,
         prices,
         name,
         price,
         basePrice: price / state.quantity,
+        category,
       };
     case actionName.UPDATE_SIZE:
       return { ...state, size: action.payload };

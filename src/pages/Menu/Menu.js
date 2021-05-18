@@ -16,7 +16,15 @@ const Wrapper = styled.div`
   width: 86vw;
   display: flex;
   flex-direction: column;
+  height: 100vh;
+  min-height: 100vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
   animation: ${showPage} 0.2s ease-in forwards;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 const Menu = (props) => {

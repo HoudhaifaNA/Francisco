@@ -112,6 +112,37 @@ export const calculateTotal = () => (dispatch, getState) => {
   dispatch({ type: actionNames.CALCULATE_TOTAL, payload: order.items });
 };
 
+export const checkoutOrder = () => async (dispatch, getState) => {
+  const { order } = getState();
+
+  const time = `${new Date().getHours()}:${new Date().getMinutes()}`;
+  const { data: orders } = await axiosAPI.get("/orders");
+  await axiosAPI.post(`/orders`, {
+    ...order,
+    time,
+    id: uniqid(),
+    number: orders.length + 1,
+  });
+  dispatch({ type: actionNames.CHECKOUT_ORDER });
+};
+
+export const getAllOrders = () => async (dispatch) => {
+  const { data: orders } = await axiosAPI.get("/orders");
+
+  dispatch({ type: actionNames.GET_ALL_ORDERS, payload: orders });
+};
+
+export const selectOrdertoDelete = (id) => {
+  return { type: actionNames.SELECT_ORDER_TO_DELETE, payload: id };
+};
+
+export const deleteOrder = (id) => async (dispatch) => {
+  await axiosAPI.delete(`/orders/${id}`);
+
+  dispatch({ type: actionNames.DELETE_ORDERS });
+  window.location.reload();
+};
+
 export const selectMenuSection = (section) => async (dispatch) => {
   const { data: items } = await axiosAPI.get(`/${section}`);
   const { data: categories } = await axiosAPI.get("Categories");

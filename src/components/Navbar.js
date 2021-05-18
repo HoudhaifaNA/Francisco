@@ -79,7 +79,6 @@ const NavLogout = styled.div`
 const Navbar = () => {
   const [location, setLocation] = useState("home");
   const rerender = () => {
-    console.log(location);
     setLocation(uniqid());
   };
   return (
