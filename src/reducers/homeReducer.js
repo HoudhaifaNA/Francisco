@@ -5,6 +5,7 @@ const INITIAL_STATE = {
   items: {},
   categories: {},
   suppluments: {},
+  searchTerm: "",
 };
 
 // eslint-disable-next-line import/no-anonymous-default-export
@@ -19,6 +20,8 @@ export default (state = INITIAL_STATE, action) => {
         type: action.payload.category,
         items: action.payload.items,
       };
+    case actionName.SEAERCH:
+      return { ...state, searchTerm: action.payload.toLowerCase() };
     default:
       return state;
   }

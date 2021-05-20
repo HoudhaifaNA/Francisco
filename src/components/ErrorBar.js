@@ -9,9 +9,9 @@ const Error = styled.div`
   width: 28rem;
   min-height: 6rem;
   padding: 2rem;
-  background-color: #ecc8c5;
+  background-color: #fff;
   color: #b43230;
-  box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1rem 1rem 0.3rem rgba(0, 0, 0, 0.1);
   font-weight: 700;
   display: flex;
   align-items: center;

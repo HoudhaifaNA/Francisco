@@ -16,9 +16,20 @@ const Wrapper = styled.main`
 `;
 
 const Items = (props) => {
+  let items = [];
+
+  if (props.items.length > 0) {
+    if (props.searchTerm !== "") {
+      items = props.items.filter((it) => it.name.startsWith(props.searchTerm));
+    } else {
+      items = props.items;
+    }
+  }
+
   const render = () => {
-    if (props.items.length > 0) {
-      return props.items.map((it) => {
+    console.log(items);
+    if (items.length > 0) {
+      return items.map((it) => {
         return (
           <FoodItem
             key={it.id}
@@ -41,6 +52,6 @@ const Items = (props) => {
   return <Wrapper>{render()}</Wrapper>;
 };
 const mapStateToProps = (state) => {
-  return { items: state.data.items };
+  return { items: state.data.items, searchTerm: state.data.searchTerm };
 };
 export default connect(mapStateToProps)(Items);

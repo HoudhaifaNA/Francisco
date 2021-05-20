@@ -42,8 +42,8 @@ const IconContainer = styled.div`
   border-radius: 0.5rem;
   border: 0.2rem solid rgba(0, 0, 0, 0.1);
   svg {
-    width: 2rem;
-    height: 2rem;
+    width: 2.5rem;
+    height: 2.5rem;
     fill: ${(props) => props.theme.colors.greyDark};
   }
 `;

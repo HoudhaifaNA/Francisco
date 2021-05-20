@@ -34,7 +34,7 @@ const PageHeader = (props) => {
       props.selected.forEach((id) =>
         setTimeout(() => {
           props.deleteOrder(id);
-        }, 1000)
+        }, 500)
       );
     }
   };

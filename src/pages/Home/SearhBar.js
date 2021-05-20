@@ -1,5 +1,8 @@
 import React from "react";
+import { connect } from "react-redux";
 import styled from "styled-components";
+
+import { onSearch } from "../../actions";
 
 import Icon from "../../components/Icon";
 
@@ -42,10 +45,13 @@ const SearchSvg = styled.svg`
   transition: all 0.2s ease;
 `;
 
-const SearchBar = () => {
+const SearchBar = (props) => {
+  const onSearch = (e) => {
+    props.onSearch(e.target.value);
+  };
   return (
     <SearchContainer>
-      <SearchInput placeholder="Tacos poulet" />
+      <SearchInput placeholder="Search" onChange={onSearch} />
       <SearchSvg>
         <Icon icon="search" />
       </SearchSvg>
@@ -53,4 +59,4 @@ const SearchBar = () => {
   );
 };
 
-export default SearchBar;
+export default connect(null, { onSearch })(SearchBar);

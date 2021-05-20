@@ -24,7 +24,7 @@ const handleSubmit = (e, props) => {
       props.showError(res);
       window.setTimeout(() => {
         props.showError(null);
-      }, 1000);
+      }, 2000);
     }
   } else {
     if (res === "success") {

@@ -1,4 +1,3 @@
-import _ from "lodash";
 import React from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
@@ -33,7 +32,7 @@ const DeleteController = (props) => {
       props.selected.forEach((id) =>
         setTimeout(() => {
           props.deletMenuItem(id);
-        }, 1000)
+        }, 500)
       );
     }
   };

@@ -32,7 +32,6 @@ export default (state = INITIAL_STATE, action) => {
           selected: _.remove(state.selected, (id) => id !== action.payload),
         };
       }
-
     default:
       return state;
   }

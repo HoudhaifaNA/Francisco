@@ -8,7 +8,7 @@ const INITIAL_STATE = {
   retardTime: "",
   type: "A Table",
   tableNumber: 1,
-  phoneNumber: 0,
+  phoneNumber: "",
   address: "",
 };
 
@@ -66,9 +66,9 @@ export default (state = INITIAL_STATE, action) => {
       return {
         ...state,
         type: action.payload,
-        phoneNumber: null,
+        phoneNumber: "",
         address: null,
-        tableNumber: null,
+        tableNumber: 1,
       };
     case actionNames.SELECT_TYPE_INFO:
       return { ...state, [action.payload.field]: action.payload.value };

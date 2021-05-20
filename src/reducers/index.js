@@ -7,6 +7,8 @@ import CurrentItemReducer from "./CurrentItemReducer";
 import orderReducer from "./orderReducer";
 import allOrdersReducer from "./allOrdersReducer";
 import menuReducer from "./menuReducer";
+import securityReducer from "./securityReducer";
+
 import errorReducer from "./errorReducer";
 
 export default combineReducers({
@@ -18,4 +20,5 @@ export default combineReducers({
   error: errorReducer,
   data: homeReducer,
   dashboard: allOrdersReducer,
+  security: securityReducer,
 });

@@ -1,27 +1,59 @@
 import uniqid from "uniqid";
+import bcrypt from "bcryptjs";
 import actionNames from "../actionNames";
 import history from "../History";
 import axiosAPI from "../axiosAPI";
+
+const sortAlphabatecily = (array, type) => {
+  return array.sort((a, b) => a.name.localeCompare(b.name));
+};
+
+export const loginInputChange = (field, value) => {
+  return { type: actionNames.ON_LOGIN_INPUT_CHANGE, payload: { field, value } };
+};
+
+export const login = (name, password) => async (dispatch) => {
+  const { data: user } = await axiosAPI.get(`/users/?name=${name}`);
+  if (user.length > 0) {
+    const isPasswordCorrect = await bcrypt.compare(password, user[0].password);
+    if (isPasswordCorrect) {
+      localStorage.setItem("id", user[0].id);
+      history.push("/home");
+      return ["success"];
+    } else {
+      return ["error", "password incorrect"];
+    }
+  } else {
+    return ["error", `user doesn't exist`];
+  }
+};
 
 export const showError = (error) => {
   return { type: actionNames.CREATE_ERROR, payload: error };
 };
 
-export const getData = () => async (dispatch) => {
-  const { data: items } = await axiosAPI.get("/Articles");
-  const { data: categories } = await axiosAPI.get("/Categories");
-  const { data: suppluments } = await axiosAPI.get("/Supplements");
+export const onSearch = (value) => {
+  return { type: actionNames.SEAERCH, payload: value };
+};
 
+export const getData = () => async (dispatch) => {
+  let { data: items } = await axiosAPI.get("/Articles");
+  let { data: categories } = await axiosAPI.get("/Categories");
+  let { data: suppluments } = await axiosAPI.get("/Supplements");
+  items = sortAlphabatecily(items);
+  categories = sortAlphabatecily(categories);
+  suppluments = sortAlphabatecily(suppluments);
   dispatch({
     type: actionNames.GET_DATA,
     payload: { items, categories, suppluments },
   });
 };
 export const getItemsOnCategory = (category) => async (dispatch) => {
-  const { data: items } =
+  let { data: items } =
     category === "Tout"
       ? await axiosAPI.get(`/Articles`)
       : await axiosAPI.get(`/Articles?Category=${category.toLowerCase()}`);
+  items = sortAlphabatecily(items);
 
   dispatch({
     type: actionNames.GET_BASED_ON_CATEGORY,
@@ -114,14 +146,27 @@ export const calculateTotal = () => (dispatch, getState) => {
 
 export const checkoutOrder = () => async (dispatch, getState) => {
   const { order } = getState();
-
-  const time = `${new Date().getHours()}:${new Date().getMinutes()}`;
+  const { data: user } = await axiosAPI.get(
+    `/users/${localStorage.getItem("id")}`
+  );
+  const timeChecker = (unit) => {
+    console.log(unit.length);
+    if (`${unit}`.split("").length === 1) {
+      return `0${unit}`;
+    } else {
+      return unit;
+    }
+  };
+  const time = `${timeChecker(new Date().getHours())}:${timeChecker(
+    new Date().getMinutes()
+  )}`;
   const { data: orders } = await axiosAPI.get("/orders");
   await axiosAPI.post(`/orders`, {
     ...order,
     time,
     id: uniqid(),
     number: orders.length + 1,
+    user: user.name,
   });
   dispatch({ type: actionNames.CHECKOUT_ORDER });
 };
@@ -144,8 +189,10 @@ export const deleteOrder = (id) => async (dispatch) => {
 };
 
 export const selectMenuSection = (section) => async (dispatch) => {
-  const { data: items } = await axiosAPI.get(`/${section}`);
+  let { data: items } = await axiosAPI.get(`/${section}`);
   const { data: categories } = await axiosAPI.get("Categories");
+  items = sortAlphabatecily(items);
+
   dispatch({
     type: actionNames.SELECT_MENU_SECTION,
     payload: { section, items, categories },
@@ -163,6 +210,7 @@ export const createItem = () => async (dispatch, getState) => {
     Category: menu.postItem.Category
       ? menu.postItem.Category.toLowerCase()
       : "",
+    name: menu.postItem.name.toLowerCase(),
     prices: [
       menu.postItem["Price L"] * 1,
       menu.postItem["Price XL"] * 1,
@@ -181,6 +229,7 @@ export const editItem = (id) => async (dispatch, getState) => {
 
   await axiosAPI.patch(`/${menu.type}/${id}`, {
     ...menu.editItem,
+    name: menu.editItem.name.toLowerCase(),
   });
   history.push("/menu");
 };
@@ -194,4 +243,34 @@ export const deletMenuItem = (id) => async (dispatch, getState) => {
 
   await axiosAPI.delete(`/${menu.type}/${id}`);
   window.location.reload();
+};
+
+export const getUsers = () => async (dispatch) => {
+  let { data: users } = await axiosAPI.get(`/users`);
+  users = users.map((user) => user.name);
+  dispatch({ type: actionNames.GET_USERS, payload: users });
+};
+
+export const onSecureityInputChange = (field, text, type) => {
+  return {
+    type: actionNames.ON_SECURETY_INPUT_CHANGE,
+    payload: { field, text, type },
+  };
+};
+
+export const updateUser = (type, security) => async (dispatch) => {
+  const data = security[type];
+
+  if (type === "newAccount") {
+    const newUser = {
+      name: data["first"].toLowerCase(),
+      password: await bcrypt.hash(data["second"], 12),
+    };
+    await axiosAPI.post(`/users`, { ...newUser, id: uniqid() });
+  } else {
+    const newPassword = await bcrypt.hash(data["first"], 12);
+    const id = localStorage.getItem("id");
+    await axiosAPI.patch(`/users/${id}`, { password: newPassword });
+  }
+  dispatch({ type: actionNames.SUBMIT_USER });
 };

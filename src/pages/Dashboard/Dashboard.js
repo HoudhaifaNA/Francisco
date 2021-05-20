@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import styled, { keyframes } from "styled-components";
 
 import { getAllOrders } from "../../actions";
+
+import { protectedRoutes } from "../../validators/securityValidaror";
 import Main from "./Main";
 import Chart from "./Chart";
 
@@ -18,6 +20,7 @@ const Wrapper = styled.div`
 `;
 
 const Dashboard = (props) => {
+  protectedRoutes();
   useEffect(() => {
     props.getAllOrders();
   });

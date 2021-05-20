@@ -77,9 +77,13 @@ const NavLogout = styled.div`
 `;
 
 const Navbar = () => {
-  const [location, setLocation] = useState("home");
+  const [, setLocation] = useState("home");
   const rerender = () => {
     setLocation(uniqid());
+  };
+  const logOut = () => {
+    window.location.assign("/");
+    localStorage.setItem("id", undefined);
   };
   return (
     <Wrapper>
@@ -121,7 +125,7 @@ const Navbar = () => {
         </NavbarItem>
       </NavbarList>
       <NavLogout>
-        <NavbarItem>
+        <NavbarItem onClick={logOut}>
           <NavIcon>
             <Icon icon="logout" />
           </NavIcon>

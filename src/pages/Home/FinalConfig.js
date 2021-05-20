@@ -147,7 +147,9 @@ const FinalConfig = (props) => {
           width="100%"
           marginBottom="1rem"
           placeholder="Numero de table"
+          value={props.order.tableNumber}
           onChange={(e) => insertTypeInfo("tableNumber", e.target.value * 1)}
+          autoFocus
         />
       );
     } else if (props.order.type === "Livraison") {
@@ -157,13 +159,16 @@ const FinalConfig = (props) => {
             width="100%"
             marginBottom="0"
             placeholder="Numero de telephone"
+            value={props.order.phoneNumber}
             onChange={(e) => insertTypeInfo("phoneNumber", e.target.value)}
+            autoFocus
           />
           ;
           <Input
             width="100%"
             marginBottom="1rem"
             placeholder="Address"
+            value={props.order.address}
             onChange={(e) => insertTypeInfo("address", e.target.value)}
           />
           ;
@@ -215,7 +220,7 @@ const FinalConfig = (props) => {
   return (
     <Wrapper>
       {renderConfig()}
-      <PrimaryButton width="100%" height="5rem" onClick={checkoutOrder}>
+      <PrimaryButton id="checkout" width="100%" height="5rem">
         Order
       </PrimaryButton>
     </Wrapper>

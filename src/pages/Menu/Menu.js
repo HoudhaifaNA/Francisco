@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import styled, { keyframes } from "styled-components";
 
+import { protectedRoutes } from "../../validators/securityValidaror";
 import Navigation from "./Navigation";
 import CategoriesPage from "./CategoriesPage";
 import ArticlesPage from "./ArticlesPage";
@@ -28,6 +29,7 @@ const Wrapper = styled.div`
 `;
 
 const Menu = (props) => {
+  protectedRoutes();
   const renderPage = () => {
     if (props.section === "Categories") return <CategoriesPage />;
     if (props.section === "Articles") return <ArticlesPage />;

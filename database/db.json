@@ -29,6 +29,29 @@
         null
       ],
       "id": "kosuyf16"
+    },
+    {
+      "name": "boisson",
+      "Category": "",
+      "prices": [
+        null,
+        null,
+        null
+      ],
+      "id": "kotts1gz"
+    },
+    {
+      "name": "burger",
+      "Category": "burger",
+      "Price L": "45",
+      "Price XL": "4564",
+      "Price XXL": "54",
+      "prices": [
+        45,
+        4564,
+        54
+      ],
+      "id": "kovjgrv4"
     }
   ],
   "Articles": [
@@ -122,6 +145,19 @@
         6565
       ],
       "id": "koldlc4m"
+    },
+    {
+      "name": "burger chicken",
+      "Category": "burger",
+      "Price L": "45",
+      "Price XL": "45",
+      "Price XXL": "45",
+      "prices": [
+        45,
+        45,
+        45
+      ],
+      "id": "kovjh8yc"
     }
   ],
   "Supplements": [
@@ -155,33 +191,423 @@
   "orders": [
     {
       "items": {
-        "kot0t3yb": {
-          "name": "tiramisu",
+        "kovnmni6": {
+          "name": "cici",
           "size": "L",
-          "price": 20,
+          "price": 4564,
           "supluments": {},
           "suplumentsTotal": 0,
-          "basePrice": 5,
-          "quantity": 4,
-          "category": "dessert",
+          "basePrice": 4564,
+          "quantity": 1,
+          "category": "boisson",
           "prices": [
-            5,
-            655,
-            65
+            4564,
+            564,
+            56456
           ],
-          "id": "kot0t3yb"
+          "id": "kovnmni6"
         }
       },
-      "total": 20,
+      "total": 4564,
       "retard": false,
       "retardTime": "",
       "type": "A Table",
       "tableNumber": 1,
-      "phoneNumber": 0,
+      "phoneNumber": "",
       "address": "",
-      "time": "20:48",
-      "id": "kot0t4rr",
-      "number": 10
+      "time": "4:3",
+      "id": "kovnmo51",
+      "number": 5,
+      "user": "banga"
+    },
+    {
+      "items": {
+        "kovno6pr": {
+          "name": "Burger Special",
+          "size": "L",
+          "price": 484,
+          "supluments": {},
+          "suplumentsTotal": 0,
+          "basePrice": 484,
+          "quantity": 1,
+          "category": "burger",
+          "prices": [
+            484,
+            65465,
+            465456
+          ],
+          "id": "kovno6pr"
+        }
+      },
+      "total": 484,
+      "retard": false,
+      "retardTime": "",
+      "type": "A Table",
+      "tableNumber": 1,
+      "phoneNumber": "",
+      "address": "",
+      "time": "04:04",
+      "id": "kovno7kd",
+      "number": 6,
+      "user": "banga"
+    },
+    {
+      "items": {
+        "kowoat20": {
+          "name": "Burger Special",
+          "size": "L",
+          "price": 484,
+          "supluments": {},
+          "suplumentsTotal": 0,
+          "basePrice": 484,
+          "quantity": 1,
+          "category": "burger",
+          "prices": [
+            484,
+            65465,
+            465456
+          ],
+          "id": "kowoat20"
+        }
+      },
+      "total": 484,
+      "retard": false,
+      "retardTime": "",
+      "type": "A Table",
+      "tableNumber": 1,
+      "phoneNumber": "",
+      "address": "",
+      "time": "10:09",
+      "id": "kowoaw62",
+      "number": 3,
+      "user": "banga"
+    },
+    {
+      "items": {
+        "kowoc35o": {
+          "name": "Nachos ",
+          "size": "L",
+          "price": 350,
+          "supluments": {},
+          "suplumentsTotal": 0,
+          "basePrice": 350,
+          "quantity": 1,
+          "category": "nachos",
+          "prices": [
+            350,
+            500,
+            800
+          ],
+          "id": "kowoc35o"
+        }
+      },
+      "total": 350,
+      "retard": false,
+      "retardTime": "",
+      "type": "A Table",
+      "tableNumber": 1,
+      "phoneNumber": "",
+      "address": "",
+      "time": "10:10",
+      "id": "kowoc4vk",
+      "number": 4,
+      "user": "banga"
+    },
+    {
+      "items": {
+        "kowq58vd": {
+          "name": "Nachos ",
+          "size": "L",
+          "price": 350,
+          "supluments": {},
+          "suplumentsTotal": 0,
+          "basePrice": 350,
+          "quantity": 1,
+          "category": "nachos",
+          "prices": [
+            350,
+            500,
+            800
+          ],
+          "id": "kowq58vd"
+        }
+      },
+      "total": 350,
+      "retard": false,
+      "retardTime": "",
+      "type": "A Table",
+      "tableNumber": 1,
+      "phoneNumber": "",
+      "address": "",
+      "time": "11:01",
+      "id": "kowq5e64",
+      "number": 5,
+      "user": "banga"
+    },
+    {
+      "items": {
+        "kowqbcnk": {
+          "name": "Nachos ",
+          "size": "L",
+          "price": 350,
+          "supluments": {},
+          "suplumentsTotal": 0,
+          "basePrice": 350,
+          "quantity": 1,
+          "category": "nachos",
+          "prices": [
+            350,
+            500,
+            800
+          ],
+          "id": "kowqbcnk"
+        }
+      },
+      "total": 350,
+      "retard": false,
+      "retardTime": "",
+      "type": "A Table",
+      "tableNumber": 1,
+      "phoneNumber": "",
+      "address": "",
+      "time": "11:06",
+      "id": "kowqbhia",
+      "number": 6,
+      "user": "banga"
+    },
+    {
+      "items": {
+        "kowqbcnk": {
+          "name": "Nachos ",
+          "size": "L",
+          "price": 350,
+          "supluments": {},
+          "suplumentsTotal": 0,
+          "basePrice": 350,
+          "quantity": 1,
+          "category": "nachos",
+          "prices": [
+            350,
+            500,
+            800
+          ],
+          "id": "kowqbcnk"
+        }
+      },
+      "total": 350,
+      "retard": false,
+      "retardTime": "",
+      "type": "A Table",
+      "tableNumber": 1,
+      "phoneNumber": "",
+      "address": "",
+      "time": "11:06",
+      "id": "kowqbhk1",
+      "number": 6,
+      "user": "banga"
+    },
+    {
+      "items": {
+        "kowqbmnj": {
+          "name": "cici",
+          "size": "L",
+          "price": 4564,
+          "supluments": {},
+          "suplumentsTotal": 0,
+          "basePrice": 4564,
+          "quantity": 1,
+          "category": "boisson",
+          "prices": [
+            4564,
+            564,
+            56456
+          ],
+          "id": "kowqbmnj"
+        }
+      },
+      "total": 4564,
+      "retard": false,
+      "retardTime": "",
+      "type": "A Table",
+      "tableNumber": 1,
+      "phoneNumber": "",
+      "address": "",
+      "time": "11:06",
+      "id": "kowqbnu8",
+      "number": 8,
+      "user": "banga"
+    },
+    {
+      "items": {
+        "kowqbq9b": {
+          "name": "Nachos ",
+          "size": "L",
+          "price": 350,
+          "supluments": {},
+          "suplumentsTotal": 0,
+          "basePrice": 350,
+          "quantity": 1,
+          "category": "nachos",
+          "prices": [
+            350,
+            500,
+            800
+          ],
+          "id": "kowqbq9b"
+        }
+      },
+      "total": 350,
+      "retard": false,
+      "retardTime": "",
+      "type": "A Table",
+      "tableNumber": 1,
+      "phoneNumber": "",
+      "address": "",
+      "time": "11:06",
+      "id": "kowqbqyh",
+      "number": 9,
+      "user": "banga"
+    },
+    {
+      "items": {
+        "kowqcizd": {
+          "name": "Nachos ",
+          "size": "L",
+          "price": 350,
+          "supluments": {},
+          "suplumentsTotal": 0,
+          "basePrice": 350,
+          "quantity": 1,
+          "category": "nachos",
+          "prices": [
+            350,
+            500,
+            800
+          ],
+          "id": "kowqcizd"
+        }
+      },
+      "total": 350,
+      "retard": false,
+      "retardTime": "",
+      "type": "A Table",
+      "tableNumber": 1,
+      "phoneNumber": "",
+      "address": "",
+      "time": "11:07",
+      "id": "kowqcjxh",
+      "number": 10,
+      "user": "banga"
+    },
+    {
+      "items": {
+        "kowrngaw": {
+          "name": "Nachos ",
+          "size": "L",
+          "price": 350,
+          "supluments": {},
+          "suplumentsTotal": 0,
+          "basePrice": 350,
+          "quantity": 1,
+          "category": "nachos",
+          "prices": [
+            350,
+            500,
+            800
+          ],
+          "id": "kowrngaw"
+        }
+      },
+      "total": 350,
+      "retard": false,
+      "retardTime": "",
+      "type": "A Table",
+      "tableNumber": 1,
+      "phoneNumber": "",
+      "address": "",
+      "time": "11:43",
+      "id": "kowrnjnn",
+      "number": 11,
+      "user": "banga"
+    },
+    {
+      "items": {
+        "kowruwv8": {
+          "name": "Nachos ",
+          "size": "L",
+          "price": 350,
+          "supluments": {},
+          "suplumentsTotal": 0,
+          "basePrice": 350,
+          "quantity": 1,
+          "category": "nachos",
+          "prices": [
+            350,
+            500,
+            800
+          ],
+          "id": "kowruwv8"
+        }
+      },
+      "total": 350,
+      "retard": false,
+      "retardTime": "",
+      "type": "A Table",
+      "tableNumber": 1,
+      "phoneNumber": "",
+      "address": "",
+      "time": "11:49",
+      "id": "kowruxxe",
+      "number": 12,
+      "user": "banga"
+    },
+    {
+      "items": {
+        "kows7y9r": {
+          "name": "Nachos ",
+          "size": "L",
+          "price": 350,
+          "supluments": {},
+          "suplumentsTotal": 0,
+          "basePrice": 350,
+          "quantity": 1,
+          "category": "nachos",
+          "prices": [
+            350,
+            500,
+            800
+          ],
+          "id": "kows7y9r"
+        }
+      },
+      "total": 350,
+      "retard": false,
+      "retardTime": "",
+      "type": "A Table",
+      "tableNumber": 1,
+      "phoneNumber": "",
+      "address": "",
+      "time": "11:59",
+      "id": "kows80br",
+      "number": 13,
+      "user": "banga"
+    }
+  ],
+  "users": [
+    {
+      "name": "dad",
+      "password": "$2a$12$L6a1ti6fyeSRX3fOQryFvOFa/5u1RdISOGM1X0zUwLTVb5ilGncGK",
+      "id": "kovfu2yb"
+    },
+    {
+      "name": "hamid",
+      "password": "$2a$12$tkZg.zuzExCn6JZvOmqQq.JslJBAZV6M5TOsiyGOa0z76JADY4PfC",
+      "id": "kovfulic"
+    },
+    {
+      "name": "banga",
+      "password": "$2a$12$YfmlfGd.UfRfwn.KVzKqKe9wMWx.CyL4CJLqSmX4I0v6a1/crgom6",
+      "id": "kovg3xx2"
     }
   ]
 }

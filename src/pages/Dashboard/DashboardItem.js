@@ -102,6 +102,7 @@ const ItemMoreText = styled.h5`
   color: #fff;
   font-size: 1rem;
   margin-bottom: 0.6rem;
+  text-transform: capitalize;
 `;
 
 const DashboardItem = ({ order, selected, selectOrdertoDelete }) => {
@@ -133,7 +134,7 @@ const DashboardItem = ({ order, selected, selectOrdertoDelete }) => {
       <ItemMore>
         <ItemMoreText>{order.total}.00DA</ItemMoreText>
         <ItemMoreText>{order.time}</ItemMoreText>
-        <ItemMoreText>Younes</ItemMoreText>
+        <ItemMoreText>{order.user}</ItemMoreText>
       </ItemMore>
     </Wrapper>
   );

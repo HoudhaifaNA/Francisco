@@ -2,7 +2,7 @@ import _ from "lodash";
 import React from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
-import { Doughnut, defaults } from "react-chartjs-2";
+import { Doughnut } from "react-chartjs-2";
 
 const Wrapper = styled.div`
   width: 22vw;
@@ -32,6 +32,7 @@ const Chart = (props) => {
 
   let categories = [];
   let quantities = [];
+  // eslint-disable-next-line no-unused-vars
   items = items.map((it) => {
     return _.values(it).map((x) => {
       categoriesAndQuantity = [
@@ -47,6 +48,7 @@ const Chart = (props) => {
       );
       categories = res.map((cat) => cat.name);
       quantities = res.map((cat) => cat.value);
+      return 1;
     });
   });
 
