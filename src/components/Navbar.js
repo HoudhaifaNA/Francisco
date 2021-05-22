@@ -91,7 +91,13 @@ const Navbar = () => {
         <img src="/assets/logo.png" alt="Francisco Logo" />
       </Logo>
       <NavbarList>
-        <NavbarItem path="/home" onClick={rerender}>
+        <NavbarItem
+          path="/home"
+          onClick={() => {
+            rerender();
+            window.dispatchEvent(new Event("popstate"));
+          }}
+        >
           <Link to="home">
             <NavIcon>
               <Icon icon="home" />

@@ -1,7 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 
+import history from "../../History";
 import ActionButton from "../../components/ActionButton";
 
 const Wrapper = styled.div`
@@ -19,7 +19,14 @@ const PageHeader = (props) => {
   return (
     <Wrapper>
       <PageTitle>{props.pageTitle}</PageTitle>
-      <Link to="/new" style={{ textDecoration: "none " }}>
+      <div
+        to="/new"
+        style={{ textDecoration: "none " }}
+        onClick={() => {
+          history.push("/new", {});
+          window.dispatchEvent(new Event("popstate"));
+        }}
+      >
         <ActionButton
           width="15rem"
           height="4rem"
@@ -28,7 +35,7 @@ const PageHeader = (props) => {
         >
           new {props.actionName}
         </ActionButton>
-      </Link>
+      </div>
     </Wrapper>
   );
 };

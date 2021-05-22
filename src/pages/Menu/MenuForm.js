@@ -12,7 +12,22 @@ const Form = styled.form`
   height: 45rem;
   padding: 2rem;
 `;
+
+const FormPrinters = styled.div`
+  width: 100%;
+  padding: 1rem 0;
+  height: 20rem;
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+`;
+
 const handleSubmit = (e, props) => {
+  let printerName;
+  const printers = document.getElementsByName("printer");
+  printers.forEach((printer) => {
+    if (printer.checked) printerName = printer.value;
+  });
   const { type, postItem, editItem, items, categories } = props.menu;
   e.preventDefault();
   const res = menuValidator(type, postItem, editItem, items, categories);
@@ -28,7 +43,7 @@ const handleSubmit = (e, props) => {
     }
   } else {
     if (res === "success") {
-      props.createItem();
+      props.createItem(printerName);
     } else {
       props.showError(res);
       window.setTimeout(() => {
@@ -43,6 +58,7 @@ const RenderForm = (props) => {
     return (
       <Form onSubmit={(e) => handleSubmit(e, props)}>
         <FormGroup label="name" type="text" id={props.id} />
+        <FormPrinters className="form-printers"></FormPrinters>
         {renderButtons()}
       </Form>
     );

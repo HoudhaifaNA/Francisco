@@ -67,7 +67,7 @@ export default (state = INITIAL_STATE, action) => {
         ...state,
         type: action.payload,
         phoneNumber: "",
-        address: null,
+        address: "",
         tableNumber: 1,
       };
     case actionNames.SELECT_TYPE_INFO:

@@ -11,6 +11,7 @@ const INITIAL_STATE = {
   quantity: 1,
   category: "",
   prices: [0, 0, 0],
+  printer: "",
 };
 
 const finalPrice = (size, prices) => {
@@ -47,12 +48,18 @@ export default (state = INITIAL_STATE, action) => {
         _.values(action.payload).length > 0
           ? _.values(action.payload)[0].category
           : "";
+      const printer =
+        _.values(action.payload).length > 0
+          ? _.values(action.payload)[0].printer
+          : "";
       return {
         ...state,
         prices,
         name,
         price,
         basePrice: price / state.quantity,
+        printer: printer,
+        suplumentsTotal,
         category,
       };
     case actionName.UPDATE_SIZE:

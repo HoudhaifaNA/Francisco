@@ -27,7 +27,6 @@ const Items = (props) => {
   }
 
   const render = () => {
-    console.log(items);
     if (items.length > 0) {
       return items.map((it) => {
         return (
@@ -41,6 +40,7 @@ const Items = (props) => {
               it["Price XL"] * 1,
               it["Price XXL"] * 1,
             ]}
+            printer={it.printer}
             id={it.id}
           />
         );

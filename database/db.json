@@ -1,26 +1,6 @@
 {
   "Categories": [
     {
-      "name": "nachos",
-      "Category": "",
-      "prices": [
-        null,
-        null,
-        null
-      ],
-      "id": "koldioh9"
-    },
-    {
-      "name": "Tacos",
-      "Category": "",
-      "prices": [
-        null,
-        null,
-        null
-      ],
-      "id": "koldkkx2"
-    },
-    {
       "name": "pizza",
       "Category": "",
       "prices": [
@@ -28,277 +8,201 @@
         null,
         null
       ],
-      "id": "kosuyf16"
+      "printer": "Fax",
+      "id": "koy5tuzo"
     },
     {
-      "name": "boisson",
+      "name": "burger",
       "Category": "",
       "prices": [
         null,
         null,
         null
       ],
-      "id": "kotts1gz"
+      "printer": "Microsoft",
+      "id": "koy67bjo"
     },
     {
-      "name": "burger",
-      "Category": "burger",
-      "Price L": "45",
-      "Price XL": "4564",
-      "Price XXL": "54",
+      "name": "dalida",
+      "Category": "",
       "prices": [
-        45,
-        4564,
-        54
+        null,
+        null,
+        null
       ],
-      "id": "kovjgrv4"
+      "printer": "OneNote for Windows 10",
+      "id": "koy7jvd0"
     }
   ],
   "Articles": [
     {
-      "name": "Pizza boise",
+      "name": "pizza boise",
       "Category": "pizza",
-      "Price L": "150",
-      "Price XL": "5006",
-      "Price XXL": "606",
-      "prices": [
-        150,
-        5006,
-        606
-      ],
-      "id": "kokbt6qp"
-    },
-    {
-      "name": "Burger Special",
-      "Category": "burger",
-      "Price L": "484",
-      "Price XL": "65465",
-      "Price XXL": "465456",
-      "prices": [
-        484,
-        65465,
-        465456
-      ],
-      "id": "kokbtg1h"
-    },
-    {
-      "name": "cici",
-      "Category": "boisson",
-      "Price L": "4564",
-      "Price XL": "564",
-      "Price XXL": "56456",
-      "prices": [
-        4564,
-        564,
-        56456
-      ],
-      "id": "kokbtmfb"
-    },
-    {
-      "name": "Nachos ",
-      "Category": "nachos",
       "Price L": "350",
-      "Price XL": "500",
+      "Price XL": "450",
       "Price XXL": "800",
       "prices": [
         350,
-        500,
+        450,
         800
       ],
-      "id": "koldixmk"
+      "printer": "Fax",
+      "id": "koy67r3y"
     },
     {
-      "name": "Tacos ",
-      "Category": "tacos",
-      "Price L": "5",
-      "Price XL": "5",
-      "Price XXL": "5",
-      "prices": [
-        5,
-        5,
-        5
-      ],
-      "id": "koldksd3"
-    },
-    {
-      "name": "tiramisu",
-      "Category": "dessert",
-      "Price L": "5",
-      "Price XL": "655",
-      "Price XXL": "65",
-      "prices": [
-        5,
-        655,
-        65
-      ],
-      "id": "koldl2w4"
-    },
-    {
-      "name": "panini",
-      "Category": "panini",
-      "Price L": "56",
-      "Price XL": "5",
-      "Price XXL": "6565",
-      "prices": [
-        56,
-        5,
-        6565
-      ],
-      "id": "koldlc4m"
-    },
-    {
-      "name": "burger chicken",
+      "name": "burger special",
       "Category": "burger",
-      "Price L": "45",
-      "Price XL": "45",
-      "Price XXL": "45",
+      "Price L": "4560",
+      "Price XL": "4654",
+      "Price XXL": "65465",
       "prices": [
-        45,
-        45,
-        45
+        4560,
+        4654,
+        65465
       ],
-      "id": "kovjh8yc"
+      "printer": "Microsoft",
+      "id": "koy683sv"
+    },
+    {
+      "name": "burger double",
+      "Category": "burger",
+      "Price L": "4654",
+      "Price XL": "665",
+      "Price XXL": "4654",
+      "prices": [
+        4654,
+        665,
+        4654
+      ],
+      "printer": "Microsoft",
+      "id": "koy68c6x"
+    },
+    {
+      "name": "pizza foise",
+      "Category": "pizza",
+      "Price L": "5456",
+      "Price XL": "654",
+      "Price XXL": "564",
+      "prices": [
+        5456,
+        654,
+        564
+      ],
+      "printer": "Fax",
+      "id": "koy68kaa"
+    },
+    {
+      "name": "dalida view",
+      "Category": "dalida",
+      "Price L": "4560",
+      "Price XL": "606",
+      "Price XXL": "98784",
+      "prices": [
+        4560,
+        606,
+        98784
+      ],
+      "printer": "OneNote for Windows 10",
+      "id": "koy8aqkg"
     }
   ],
   "Supplements": [
     {
-      "name": "Cheddar",
-      "Category": "Pizza",
-      "Price L": "100",
-      "Price XL": "200",
-      "Price XXL": "300",
-      "prices": [
-        100,
-        200,
-        300
-      ],
-      "id": "kok1sz93"
-    },
-    {
-      "name": "Crevette",
-      "Category": "Pizza",
-      "Price L": "250",
+      "name": "cheddar",
+      "Category": "pizza",
+      "Price L": "150",
       "Price XL": "500",
       "Price XXL": "600",
       "prices": [
-        250,
+        150,
         500,
         600
       ],
-      "id": "kok1t6fz"
+      "printer": "Fax",
+      "id": "koygt53p"
+    },
+    {
+      "name": "crevette",
+      "Category": "burger",
+      "Price L": "120",
+      "Price XL": "654",
+      "Price XXL": "64654",
+      "prices": [
+        120,
+        654,
+        64654
+      ],
+      "printer": "Microsoft",
+      "id": "koygtkm3"
+    },
+    {
+      "name": "mousse",
+      "Category": "pizza",
+      "Price L": "446",
+      "Price XL": "46",
+      "Price XXL": "64",
+      "prices": [
+        446,
+        46,
+        64
+      ],
+      "printer": "Fax",
+      "id": "koygu013"
     }
   ],
   "orders": [
     {
       "items": {
-        "kovnmni6": {
-          "name": "cici",
+        "koztthmd": {
+          "name": "burger special",
           "size": "L",
-          "price": 4564,
+          "price": 4560,
           "supluments": {},
           "suplumentsTotal": 0,
-          "basePrice": 4564,
-          "quantity": 1,
-          "category": "boisson",
-          "prices": [
-            4564,
-            564,
-            56456
-          ],
-          "id": "kovnmni6"
-        }
-      },
-      "total": 4564,
-      "retard": false,
-      "retardTime": "",
-      "type": "A Table",
-      "tableNumber": 1,
-      "phoneNumber": "",
-      "address": "",
-      "time": "4:3",
-      "id": "kovnmo51",
-      "number": 5,
-      "user": "banga"
-    },
-    {
-      "items": {
-        "kovno6pr": {
-          "name": "Burger Special",
-          "size": "L",
-          "price": 484,
-          "supluments": {},
-          "suplumentsTotal": 0,
-          "basePrice": 484,
+          "basePrice": 4560,
           "quantity": 1,
           "category": "burger",
           "prices": [
-            484,
-            65465,
-            465456
+            4560,
+            4654,
+            65465
           ],
-          "id": "kovno6pr"
+          "printer": "Microsoft",
+          "id": "koztthmd"
         }
       },
-      "total": 484,
+      "total": 4560,
       "retard": false,
       "retardTime": "",
       "type": "A Table",
       "tableNumber": 1,
       "phoneNumber": "",
       "address": "",
-      "time": "04:04",
-      "id": "kovno7kd",
-      "number": 6,
-      "user": "banga"
-    },
-    {
-      "items": {
-        "kowoat20": {
-          "name": "Burger Special",
-          "size": "L",
-          "price": 484,
-          "supluments": {},
-          "suplumentsTotal": 0,
-          "basePrice": 484,
-          "quantity": 1,
-          "category": "burger",
-          "prices": [
-            484,
-            65465,
-            465456
-          ],
-          "id": "kowoat20"
-        }
-      },
-      "total": 484,
-      "retard": false,
-      "retardTime": "",
-      "type": "A Table",
-      "tableNumber": 1,
-      "phoneNumber": "",
-      "address": "",
-      "time": "10:09",
-      "id": "kowoaw62",
+      "time": "15:07",
+      "id": "kozttj1d",
       "number": 3,
-      "user": "banga"
+      "orderDate": "Sam,Mai-22-2021",
+      "user": "banga",
+      "todayDate": "2021-05-22"
     },
     {
       "items": {
-        "kowoc35o": {
-          "name": "Nachos ",
+        "koztu4sl": {
+          "name": "pizza boise",
           "size": "L",
           "price": 350,
           "supluments": {},
           "suplumentsTotal": 0,
           "basePrice": 350,
           "quantity": 1,
-          "category": "nachos",
+          "category": "pizza",
           "prices": [
             350,
-            500,
+            450,
             800
           ],
-          "id": "kowoc35o"
+          "printer": "Fax",
+          "id": "koztu4sl"
         }
       },
       "total": 350,
@@ -308,289 +212,12 @@
       "tableNumber": 1,
       "phoneNumber": "",
       "address": "",
-      "time": "10:10",
-      "id": "kowoc4vk",
+      "time": "15:08",
+      "id": "koztu5np",
       "number": 4,
-      "user": "banga"
-    },
-    {
-      "items": {
-        "kowq58vd": {
-          "name": "Nachos ",
-          "size": "L",
-          "price": 350,
-          "supluments": {},
-          "suplumentsTotal": 0,
-          "basePrice": 350,
-          "quantity": 1,
-          "category": "nachos",
-          "prices": [
-            350,
-            500,
-            800
-          ],
-          "id": "kowq58vd"
-        }
-      },
-      "total": 350,
-      "retard": false,
-      "retardTime": "",
-      "type": "A Table",
-      "tableNumber": 1,
-      "phoneNumber": "",
-      "address": "",
-      "time": "11:01",
-      "id": "kowq5e64",
-      "number": 5,
-      "user": "banga"
-    },
-    {
-      "items": {
-        "kowqbcnk": {
-          "name": "Nachos ",
-          "size": "L",
-          "price": 350,
-          "supluments": {},
-          "suplumentsTotal": 0,
-          "basePrice": 350,
-          "quantity": 1,
-          "category": "nachos",
-          "prices": [
-            350,
-            500,
-            800
-          ],
-          "id": "kowqbcnk"
-        }
-      },
-      "total": 350,
-      "retard": false,
-      "retardTime": "",
-      "type": "A Table",
-      "tableNumber": 1,
-      "phoneNumber": "",
-      "address": "",
-      "time": "11:06",
-      "id": "kowqbhia",
-      "number": 6,
-      "user": "banga"
-    },
-    {
-      "items": {
-        "kowqbcnk": {
-          "name": "Nachos ",
-          "size": "L",
-          "price": 350,
-          "supluments": {},
-          "suplumentsTotal": 0,
-          "basePrice": 350,
-          "quantity": 1,
-          "category": "nachos",
-          "prices": [
-            350,
-            500,
-            800
-          ],
-          "id": "kowqbcnk"
-        }
-      },
-      "total": 350,
-      "retard": false,
-      "retardTime": "",
-      "type": "A Table",
-      "tableNumber": 1,
-      "phoneNumber": "",
-      "address": "",
-      "time": "11:06",
-      "id": "kowqbhk1",
-      "number": 6,
-      "user": "banga"
-    },
-    {
-      "items": {
-        "kowqbmnj": {
-          "name": "cici",
-          "size": "L",
-          "price": 4564,
-          "supluments": {},
-          "suplumentsTotal": 0,
-          "basePrice": 4564,
-          "quantity": 1,
-          "category": "boisson",
-          "prices": [
-            4564,
-            564,
-            56456
-          ],
-          "id": "kowqbmnj"
-        }
-      },
-      "total": 4564,
-      "retard": false,
-      "retardTime": "",
-      "type": "A Table",
-      "tableNumber": 1,
-      "phoneNumber": "",
-      "address": "",
-      "time": "11:06",
-      "id": "kowqbnu8",
-      "number": 8,
-      "user": "banga"
-    },
-    {
-      "items": {
-        "kowqbq9b": {
-          "name": "Nachos ",
-          "size": "L",
-          "price": 350,
-          "supluments": {},
-          "suplumentsTotal": 0,
-          "basePrice": 350,
-          "quantity": 1,
-          "category": "nachos",
-          "prices": [
-            350,
-            500,
-            800
-          ],
-          "id": "kowqbq9b"
-        }
-      },
-      "total": 350,
-      "retard": false,
-      "retardTime": "",
-      "type": "A Table",
-      "tableNumber": 1,
-      "phoneNumber": "",
-      "address": "",
-      "time": "11:06",
-      "id": "kowqbqyh",
-      "number": 9,
-      "user": "banga"
-    },
-    {
-      "items": {
-        "kowqcizd": {
-          "name": "Nachos ",
-          "size": "L",
-          "price": 350,
-          "supluments": {},
-          "suplumentsTotal": 0,
-          "basePrice": 350,
-          "quantity": 1,
-          "category": "nachos",
-          "prices": [
-            350,
-            500,
-            800
-          ],
-          "id": "kowqcizd"
-        }
-      },
-      "total": 350,
-      "retard": false,
-      "retardTime": "",
-      "type": "A Table",
-      "tableNumber": 1,
-      "phoneNumber": "",
-      "address": "",
-      "time": "11:07",
-      "id": "kowqcjxh",
-      "number": 10,
-      "user": "banga"
-    },
-    {
-      "items": {
-        "kowrngaw": {
-          "name": "Nachos ",
-          "size": "L",
-          "price": 350,
-          "supluments": {},
-          "suplumentsTotal": 0,
-          "basePrice": 350,
-          "quantity": 1,
-          "category": "nachos",
-          "prices": [
-            350,
-            500,
-            800
-          ],
-          "id": "kowrngaw"
-        }
-      },
-      "total": 350,
-      "retard": false,
-      "retardTime": "",
-      "type": "A Table",
-      "tableNumber": 1,
-      "phoneNumber": "",
-      "address": "",
-      "time": "11:43",
-      "id": "kowrnjnn",
-      "number": 11,
-      "user": "banga"
-    },
-    {
-      "items": {
-        "kowruwv8": {
-          "name": "Nachos ",
-          "size": "L",
-          "price": 350,
-          "supluments": {},
-          "suplumentsTotal": 0,
-          "basePrice": 350,
-          "quantity": 1,
-          "category": "nachos",
-          "prices": [
-            350,
-            500,
-            800
-          ],
-          "id": "kowruwv8"
-        }
-      },
-      "total": 350,
-      "retard": false,
-      "retardTime": "",
-      "type": "A Table",
-      "tableNumber": 1,
-      "phoneNumber": "",
-      "address": "",
-      "time": "11:49",
-      "id": "kowruxxe",
-      "number": 12,
-      "user": "banga"
-    },
-    {
-      "items": {
-        "kows7y9r": {
-          "name": "Nachos ",
-          "size": "L",
-          "price": 350,
-          "supluments": {},
-          "suplumentsTotal": 0,
-          "basePrice": 350,
-          "quantity": 1,
-          "category": "nachos",
-          "prices": [
-            350,
-            500,
-            800
-          ],
-          "id": "kows7y9r"
-        }
-      },
-      "total": 350,
-      "retard": false,
-      "retardTime": "",
-      "type": "A Table",
-      "tableNumber": 1,
-      "phoneNumber": "",
-      "address": "",
-      "time": "11:59",
-      "id": "kows80br",
-      "number": 13,
-      "user": "banga"
+      "orderDate": "Sam,Mai-22-2021",
+      "user": "banga",
+      "todayDate": "2021-05-22"
     }
   ],
   "users": [

@@ -60,8 +60,9 @@ const FoodItem = (props) => {
     props.selectedItems[props.id] === undefined
       ? selectItem(true)
       : selectItem(false);
-    const { name, prices, id, category } = props;
-    if (isSelected === false) props.selectItem({ name, prices, id, category });
+    const { name, prices, id, category, printer } = props;
+    if (isSelected === false)
+      props.selectItem({ name, prices, id, category, printer });
     if (isSelected === true) props.unSelectItem(props.id);
     props.updateCurrentItem(props.selectedItems);
   };

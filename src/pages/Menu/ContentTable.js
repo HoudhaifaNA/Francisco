@@ -19,7 +19,7 @@ const ContentTable = (props) => {
             <Item
               key={it.id}
               id={it.id}
-              fields={[`${it.name}`, "--", "--", "--", "--", "--"]}
+              fields={[`${it.name}`, it.printer, "--", "--", "--", "--"]}
             />
           );
         } else {
@@ -47,7 +47,7 @@ const ContentTable = (props) => {
       return (
         <Item
           header={true}
-          fields={["Name", "Articles", "--", "--", "-", "Actions"]}
+          fields={["Name", "Printer", "--", "--", "-", "Actions"]}
         />
       );
     } else {

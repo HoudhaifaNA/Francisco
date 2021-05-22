@@ -220,7 +220,7 @@ const FinalConfig = (props) => {
   return (
     <Wrapper>
       {renderConfig()}
-      <PrimaryButton id="checkout" width="100%" height="5rem">
+      <PrimaryButton id="checkout" width="100%" height="5rem" onClick={checkoutOrder}>
         Order
       </PrimaryButton>
     </Wrapper>

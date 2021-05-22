@@ -15,10 +15,11 @@ export const loginInputChange = (field, value) => {
 export const login = (name, password) => async (dispatch) => {
   const { data: user } = await axiosAPI.get(`/users/?name=${name}`);
   if (user.length > 0) {
-    const isPasswordCorrect = await bcrypt.compare(password, user[0].password);
+    const isPasswordCorrect = bcrypt.compareSync(password, user[0].password);
     if (isPasswordCorrect) {
       localStorage.setItem("id", user[0].id);
       history.push("/home");
+      window.dispatchEvent(new Event("popstate"));
       return ["success"];
     } else {
       return ["error", "password incorrect"];
@@ -145,34 +146,67 @@ export const calculateTotal = () => (dispatch, getState) => {
 };
 
 export const checkoutOrder = () => async (dispatch, getState) => {
+  const days = ["Sun", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"];
+  const months = [
+    "Jan",
+    "Fév",
+    "Mar",
+    "Avr",
+    "Mai",
+    "Juin",
+    "Jui",
+    "Aoû",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+  let date = new Date();
   const { order } = getState();
+  const todayDate = date.toISOString().split("T")[0];
   const { data: user } = await axiosAPI.get(
     `/users/${localStorage.getItem("id")}`
   );
+  const { data: orders } = await axiosAPI.get("/orders");
+  const { data: ordersNotToday } = await axiosAPI.get(
+    `/orders/?todayDate_ne=${todayDate}`
+  );
+  ordersNotToday.forEach(async (or) => {
+    await axiosAPI.delete(`/orders/${or.id}`);
+  });
   const timeChecker = (unit) => {
-    console.log(unit.length);
     if (`${unit}`.split("").length === 1) {
       return `0${unit}`;
     } else {
       return unit;
     }
   };
-  const time = `${timeChecker(new Date().getHours())}:${timeChecker(
-    new Date().getMinutes()
+
+  const time = `${timeChecker(date.getHours())}:${timeChecker(
+    date.getMinutes()
   )}`;
-  const { data: orders } = await axiosAPI.get("/orders");
-  await axiosAPI.post(`/orders`, {
+  const orderDate = `${days[date.getDay()]},${
+    months[date.getMonth()]
+  }-${date.getDate()}-${date.getFullYear()}`;
+  const formatedOrder = {
     ...order,
     time,
     id: uniqid(),
     number: orders.length + 1,
+    orderDate,
     user: user.name,
-  });
+    todayDate,
+  };
+  localStorage.setItem("order", JSON.stringify(formatedOrder));
+  await axiosAPI.post(`/orders`, formatedOrder);
+
   dispatch({ type: actionNames.CHECKOUT_ORDER });
 };
 
 export const getAllOrders = () => async (dispatch) => {
-  const { data: orders } = await axiosAPI.get("/orders");
+  const { data: orders } = await axiosAPI.get(
+    `/orders/?todayDate=${new Date().toISOString().split("T")[0]}`
+  );
 
   dispatch({ type: actionNames.GET_ALL_ORDERS, payload: orders });
 };
@@ -202,8 +236,17 @@ export const inputChange = (field, value) => {
   return { type: actionNames.INPUT_CHANGE, payload: { field, value } };
 };
 
-export const createItem = () => async (dispatch, getState) => {
+export const createItem = (printer) => async (dispatch, getState) => {
   const { menu } = getState();
+  let relaterdPrinter;
+  if (menu.type !== "Categories") {
+    const { data: category } = await axiosAPI.get(
+      `/Categories/?name=${menu.postItem.Category.toLowerCase()}`
+    );
+    relaterdPrinter = category[0].printer;
+  } else {
+    relaterdPrinter = printer;
+  }
 
   await axiosAPI.post(`/${menu.type}`, {
     ...menu.postItem,
@@ -216,6 +259,7 @@ export const createItem = () => async (dispatch, getState) => {
       menu.postItem["Price XL"] * 1,
       menu.postItem["Price XXL"] * 1,
     ],
+    printer: relaterdPrinter,
     id: uniqid(),
   });
   history.push("/menu");
@@ -242,6 +286,7 @@ export const deletMenuItem = (id) => async (dispatch, getState) => {
   const { menu } = getState();
 
   await axiosAPI.delete(`/${menu.type}/${id}`);
+
   window.location.reload();
 };
 
